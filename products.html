@@ -16,9 +16,10 @@
                         heading: ['Viga', 'sans-serif'],
                     },
                     colors: {
-                        'brand-blue': '#475569', // Slate 600 - Industrial Blue
-                        'brand-red': '#ef4444', // Red 500 - CTA
-                        'brand-dark': '#0f172a', // Slate 900
+                        'brand-blue': '#142fb1', // New Brand Blue
+                        'brand-red': '#c60c17', // New Brand Red
+                        'brand-dark': '#0b1240', // Deep Royal Blue (replacing slate)
+                        'brand-light': '#f0f4ff', // Light Blue Tint
                     }
                 }
             }
@@ -34,7 +35,9 @@
 <body class="text-slate-600 antialiased min-h-screen flex flex-col">
 
     <!-- HEADER -->
-    <header class="bg-white border-b-2 border-gray-200 sticky top-0 z-50 shadow-sm">
+    <!-- HEADER -->
+    <header
+        class="bg-white/90 backdrop-blur-md border-b border-blue-100 sticky top-0 z-50 shadow-sm transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
             <!-- Logo -->
             <a href="index.html" class="flex items-center gap-2">
@@ -132,8 +135,8 @@
                     </svg>
                     WhatsApp
                 </a>
-                <!-- Mobile Menu Icon (Placeholder for functionality) -->
-                <button class="md:hidden p-2 text-slate-800">
+                <!-- Mobile Menu Icon -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-800 focus:outline-none">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -142,24 +145,41 @@
                 </button>
             </div>
         </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-20 left-0 w-full bg-white border-b border-gray-200 shadow-lg z-40">
+            <nav class="flex flex-col p-4 space-y-4">
+                <a href="index.html" class="text-slate-600 hover:text-brand-red font-bold">INICIO</a>
+                <a href="products.html" class="text-slate-600 hover:text-brand-red font-bold">PRODUCTOS</a>
+                <a href="projects.html" class="text-slate-600 hover:text-brand-red font-bold">PROYECTOS</a>
+                <a href="about.html" class="text-slate-600 hover:text-brand-red font-bold">QUIÉNES SOMOS</a>
+                <a href="contact.html" class="text-slate-600 hover:text-brand-red font-bold">CONTACTO</a>
+            </nav>
+        </div>
     </header>
 
     <!-- MAIN CONTENT -->
     <main class="flex-grow">
 
         <!-- HERO SECTION -->
-        <section class="w-full bg-slate-100 border-b border-gray-200 py-16 px-4">
+        <section
+            class="w-full bg-gradient-to-b from-brand-light to-white border-b border-blue-50 py-20 px-4 relative overflow-hidden">
+            <!-- Decorative blobs -->
+            <div
+                class="absolute top-0 right-0 w-96 h-96 bg-brand-blue/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2">
+            </div>
             <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-                <div>
-                    <h1 class="font-heading text-4xl text-slate-900 mb-2">Catálogo de productos</h1>
-                    <p class="text-lg text-slate-600">
+                <div class="relative z-10">
+                    <h1 class="font-heading text-4xl text-brand-dark mb-2">Catálogo de productos</h1>
+                    <p class="text-lg text-blue-900/70">
                         Soluciones en refrigeración y aislamiento industrial para empresas, industrias y comercios.
                     </p>
                 </div>
                 <div
-                    class="flex items-center gap-2 bg-white px-4 py-2 rounded border border-gray-300 shadow-sm text-sm text-gray-500">
+                    class="flex items-center gap-2 bg-white/80 backdrop-blur px-4 py-2 rounded-full border border-blue-100 shadow-sm text-sm text-brand-blue">
                     <span>Filtros:</span>
-                    <button class="font-bold text-slate-800">Todos</button>
+                    <button class="font-bold text-brand-dark">Todos</button>
                     <span>/</span>
                     <button class="hover:text-brand-red">Paneles</button>
                     <span>/</span>
@@ -175,22 +195,22 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Product Card 1 -->
                 <div
-                    class="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition flex flex-col group">
+                    class="bg-white rounded-2xl border border-blue-50 overflow-hidden shadow-lg hover:shadow-2xl transition hover:-translate-y-1 flex flex-col group">
                     <a href="product-detail.html"
-                        class="block relative bg-slate-200 aspect-[4/3] flex items-center justify-center text-slate-400 font-bold overflow-hidden">
+                        class="block relative bg-gray-100 aspect-[4/3] flex items-center justify-center text-gray-400 font-bold overflow-hidden">
                         [IMAGEN PANEL]
                         <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-5 transition"></div>
                     </a>
-                    <div class="p-6 flex flex-col flex-grow">
+                    <div class="p-6 flex flex-col flex-grow relative z-10 bg-white">
                         <a href="product-detail.html">
                             <h3
-                                class="font-heading text-xl font-bold text-slate-900 mb-2 group-hover:text-brand-red transition">
+                                class="font-heading text-xl font-bold text-brand-dark mb-2 group-hover:text-brand-blue transition">
                                 Paneles Aislantes</h3>
                         </a>
                         <p class="text-slate-600 text-sm mb-6 flex-grow">Paneles diseñados para aislamiento térmico
                             eficiente en cámaras de frío y estructuras industriales.</p>
                         <a href="https://wa.me/"
-                            class="w-full bg-brand-red text-white py-3 rounded font-bold uppercase text-sm hover:bg-red-600 transition text-center flex items-center justify-center gap-2">
+                            class="w-full bg-white border-2 border-brand-red text-brand-red py-3 rounded-lg font-bold uppercase text-sm hover:bg-brand-red hover:text-white transition text-center flex items-center justify-center gap-2 shadow-sm">
                             <span>📱</span> Cotizar por WhatsApp
                         </a>
                     </div>
@@ -198,21 +218,21 @@
 
                 <!-- Product Card 2 -->
                 <div
-                    class="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition flex flex-col group">
+                    class="bg-white rounded-2xl border border-blue-50 overflow-hidden shadow-lg hover:shadow-2xl transition hover:-translate-y-1 flex flex-col group">
                     <a href="product-detail.html"
-                        class="block relative bg-slate-200 aspect-[4/3] flex items-center justify-center text-slate-400 font-bold overflow-hidden">
+                        class="block relative bg-gray-100 aspect-[4/3] flex items-center justify-center text-gray-400 font-bold overflow-hidden">
                         [IMAGEN PUERTA]
                         <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-5 transition"></div>
                     </a>
-                    <div class="p-6 flex flex-col flex-grow">
+                    <div class="p-6 flex flex-col flex-grow relative z-10 bg-white">
                         <a href="product-detail.html">
                             <h3
-                                class="font-heading text-xl font-bold text-slate-900 mb-2 group-hover:text-brand-red transition">
+                                class="font-heading text-xl font-bold text-brand-dark mb-2 group-hover:text-brand-blue transition">
                                 Puertas Frigoríficas</h3>
                         </a>
                         <p class="text-slate-600 text-sm mb-6 flex-grow">Sistemas de apertura y cierre hermético.</p>
                         <a href="https://wa.me/"
-                            class="w-full bg-brand-red text-white py-3 rounded font-bold uppercase text-sm hover:bg-red-600 transition text-center flex items-center justify-center gap-2">
+                            class="w-full bg-white border-2 border-brand-red text-brand-red py-3 rounded-lg font-bold uppercase text-sm hover:bg-brand-red hover:text-white transition text-center flex items-center justify-center gap-2 shadow-sm">
                             <span>📱</span> Cotizar por WhatsApp
                         </a>
                     </div>
@@ -220,22 +240,22 @@
 
                 <!-- Product Card 3 -->
                 <div
-                    class="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition flex flex-col group">
+                    class="bg-white rounded-2xl border border-blue-50 overflow-hidden shadow-lg hover:shadow-2xl transition hover:-translate-y-1 flex flex-col group">
                     <a href="product-detail.html"
-                        class="block relative bg-slate-200 aspect-[4/3] flex items-center justify-center text-slate-400 font-bold overflow-hidden">
+                        class="block relative bg-gray-100 aspect-[4/3] flex items-center justify-center text-gray-400 font-bold overflow-hidden">
                         [IMAGEN CONDENSADORA]
                         <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-5 transition"></div>
                     </a>
-                    <div class="p-6 flex flex-col flex-grow">
+                    <div class="p-6 flex flex-col flex-grow relative z-10 bg-white">
                         <a href="product-detail.html">
                             <h3
-                                class="font-heading text-xl font-bold text-slate-900 mb-2 group-hover:text-brand-red transition">
+                                class="font-heading text-xl font-bold text-brand-dark mb-2 group-hover:text-brand-blue transition">
                                 Unidades Condensadoras</h3>
                         </a>
                         <p class="text-slate-600 text-sm mb-6 flex-grow">Equipos compactos para refrigeración comercial.
                         </p>
                         <a href="https://wa.me/"
-                            class="w-full bg-brand-red text-white py-3 rounded font-bold uppercase text-sm hover:bg-red-600 transition text-center flex items-center justify-center gap-2">
+                            class="w-full bg-white border-2 border-brand-red text-brand-red py-3 rounded-lg font-bold uppercase text-sm hover:bg-brand-red hover:text-white transition text-center flex items-center justify-center gap-2 shadow-sm">
                             <span>📱</span> Cotizar por WhatsApp
                         </a>
                     </div>
@@ -243,22 +263,22 @@
 
                 <!-- Product Card 4 -->
                 <div
-                    class="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition flex flex-col group">
+                    class="bg-white rounded-2xl border border-blue-50 overflow-hidden shadow-lg hover:shadow-2xl transition hover:-translate-y-1 flex flex-col group">
                     <a href="product-detail.html"
-                        class="block relative bg-slate-200 aspect-[4/3] flex items-center justify-center text-slate-400 font-bold overflow-hidden">
+                        class="block relative bg-gray-100 aspect-[4/3] flex items-center justify-center text-gray-400 font-bold overflow-hidden">
                         [IMAGEN EVAPORADOR]
                         <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-5 transition"></div>
                     </a>
-                    <div class="p-6 flex flex-col flex-grow">
+                    <div class="p-6 flex flex-col flex-grow relative z-10 bg-white">
                         <a href="product-detail.html">
                             <h3
-                                class="font-heading text-xl font-bold text-slate-900 mb-2 group-hover:text-brand-red transition">
+                                class="font-heading text-xl font-bold text-brand-dark mb-2 group-hover:text-brand-blue transition">
                                 Evaporadores</h3>
                         </a>
                         <p class="text-slate-600 text-sm mb-6 flex-grow">Intercambiadores de calor para distintas
                             aplicaciones.</p>
                         <a href="https://wa.me/"
-                            class="w-full bg-brand-red text-white py-3 rounded font-bold uppercase text-sm hover:bg-red-600 transition text-center flex items-center justify-center gap-2">
+                            class="w-full bg-white border-2 border-brand-red text-brand-red py-3 rounded-lg font-bold uppercase text-sm hover:bg-brand-red hover:text-white transition text-center flex items-center justify-center gap-2 shadow-sm">
                             <span>📱</span> Cotizar por WhatsApp
                         </a>
                     </div>
@@ -266,21 +286,21 @@
 
                 <!-- Product Card 5 -->
                 <div
-                    class="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition flex flex-col group">
+                    class="bg-white rounded-2xl border border-blue-50 overflow-hidden shadow-lg hover:shadow-2xl transition hover:-translate-y-1 flex flex-col group">
                     <a href="product-detail.html"
-                        class="block relative bg-slate-200 aspect-[4/3] flex items-center justify-center text-slate-400 font-bold overflow-hidden">
+                        class="block relative bg-gray-100 aspect-[4/3] flex items-center justify-center text-gray-400 font-bold overflow-hidden">
                         [IMAGEN TECHO]
                         <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-5 transition"></div>
                     </a>
-                    <div class="p-6 flex flex-col flex-grow">
+                    <div class="p-6 flex flex-col flex-grow relative z-10 bg-white">
                         <a href="product-detail.html">
                             <h3
-                                class="font-heading text-xl font-bold text-slate-900 mb-2 group-hover:text-brand-red transition">
+                                class="font-heading text-xl font-bold text-brand-dark mb-2 group-hover:text-brand-blue transition">
                                 Techos Industriales</h3>
                         </a>
                         <p class="text-slate-600 text-sm mb-6 flex-grow">Cubiertas con aislación PIR integrada.</p>
                         <a href="https://wa.me/"
-                            class="w-full bg-brand-red text-white py-3 rounded font-bold uppercase text-sm hover:bg-red-600 transition text-center flex items-center justify-center gap-2">
+                            class="w-full bg-white border-2 border-brand-red text-brand-red py-3 rounded-lg font-bold uppercase text-sm hover:bg-brand-red hover:text-white transition text-center flex items-center justify-center gap-2 shadow-sm">
                             <span>📱</span> Cotizar por WhatsApp
                         </a>
                     </div>
@@ -288,22 +308,22 @@
 
                 <!-- Product Card 6 -->
                 <div
-                    class="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition flex flex-col group">
+                    class="bg-white rounded-2xl border border-blue-50 overflow-hidden shadow-lg hover:shadow-2xl transition hover:-translate-y-1 flex flex-col group">
                     <a href="product-detail.html"
-                        class="block relative bg-slate-200 aspect-[4/3] flex items-center justify-center text-slate-400 font-bold overflow-hidden">
+                        class="block relative bg-gray-100 aspect-[4/3] flex items-center justify-center text-gray-400 font-bold overflow-hidden">
                         [IMAGEN ACCESORIO]
                         <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-5 transition"></div>
                     </a>
-                    <div class="p-6 flex flex-col flex-grow">
+                    <div class="p-6 flex flex-col flex-grow relative z-10 bg-white">
                         <a href="product-detail.html">
                             <h3
-                                class="font-heading text-xl font-bold text-slate-900 mb-2 group-hover:text-brand-red transition">
+                                class="font-heading text-xl font-bold text-brand-dark mb-2 group-hover:text-brand-blue transition">
                                 Accesorios de Montaje</h3>
                         </a>
                         <p class="text-slate-600 text-sm mb-6 flex-grow">Perfiles sanitarios, tornillería y selladores.
                         </p>
                         <a href="https://wa.me/"
-                            class="w-full bg-brand-red text-white py-3 rounded font-bold uppercase text-sm hover:bg-red-600 transition text-center flex items-center justify-center gap-2">
+                            class="w-full bg-white border-2 border-brand-red text-brand-red py-3 rounded-lg font-bold uppercase text-sm hover:bg-brand-red hover:text-white transition text-center flex items-center justify-center gap-2 shadow-sm">
                             <span>📱</span> Cotizar por WhatsApp
                         </a>
                     </div>
@@ -312,12 +332,12 @@
         </section>
 
         <!-- CTA SECTION IN CATALOG -->
-        <section class="bg-slate-800 text-white py-16 px-4 text-center">
+        <section class="bg-gradient-to-r from-brand-dark to-blue-900 text-white py-16 px-4 text-center">
             <h2 class="font-heading text-2xl md:text-3xl mb-4">¿No encontrás lo que buscás?</h2>
-            <p class="text-slate-300 mb-8 max-w-2xl mx-auto">Fabricamos soluciones a medida. Consultanos por tu proyecto
+            <p class="text-blue-100 mb-8 max-w-2xl mx-auto">Fabricamos soluciones a medida. Consultanos por tu proyecto
                 específico.</p>
             <a href="contact.html"
-                class="inline-block bg-white text-slate-900 font-bold py-3 px-8 rounded shadow hover:bg-slate-200 transition">
+                class="inline-block bg-white text-brand-blue font-bold py-3 px-8 rounded-full shadow hover:bg-blue-50 transition">
                 Contactar a un asesor
             </a>
         </section>
@@ -325,7 +345,7 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-slate-900 text-slate-400 py-12 border-t-8 border-brand-red">
+    <footer class="bg-brand-dark text-blue-200 py-16 border-t-8 border-brand-red">
         <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 text-sm">
             <div class="col-span-1 md:col-span-1">
                 <div class="w-48 text-white mb-6">
@@ -398,11 +418,11 @@
                     construcción civil.</p>
                 <div class="flex gap-3">
                     <a href="#"
-                        class="w-10 h-10 bg-slate-800 rounded flex items-center justify-center hover:bg-brand-red hover:text-white transition">IG</a>
+                        class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-brand-red hover:text-white transition backdrop-blur-sm">IG</a>
                     <a href="#"
-                        class="w-10 h-10 bg-slate-800 rounded flex items-center justify-center hover:bg-brand-red hover:text-white transition">LI</a>
+                        class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-brand-red hover:text-white transition backdrop-blur-sm">LI</a>
                     <a href="#"
-                        class="w-10 h-10 bg-slate-800 rounded flex items-center justify-center hover:bg-brand-red hover:text-white transition">FB</a>
+                        class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-brand-red hover:text-white transition backdrop-blur-sm">FB</a>
                 </div>
             </div>
             <div>
@@ -447,11 +467,21 @@
                 </ul>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-slate-800 text-xs text-center">
+        <div class="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-blue-900 text-xs text-center text-blue-300">
             &copy; 2024 Cristian Mut SA. Todos los derechos reservados.
         </div>
     </footer>
 
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+    </script>
 </body>
 
 </html>
