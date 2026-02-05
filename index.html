@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wireframe - Cristianmut SA</title>
+    <title>Cristian Mut SA - Soluciones en Refrigeración y Aislamiento Industrial</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Viga&display=swap" rel="stylesheet">
     <script>
@@ -15,12 +16,9 @@
                         heading: ['Viga', 'sans-serif'],
                     },
                     colors: {
-                        'wire-bg': '#f4f4f5', // Zinc 100
-                        'wire-block': '#e4e4e7', // Zinc 200
-                        'wire-border': '#a1a1aa', // Zinc 400
-                        'wire-text': '#52525b', // Zinc 600
-                        'brand-blue': '#475569', // Slate 600 (Simulando Azul Industrial)
-                        'brand-red': '#ef4444', // Red 500 (CTA)
+                        'brand-blue': '#475569', // Slate 600 - Industrial Blue
+                        'brand-red': '#ef4444', // Red 500 - CTA
+                        'brand-dark': '#0f172a', // Slate 900
                     }
                 }
             }
@@ -28,638 +26,361 @@
     </script>
     <style>
         body {
-            background-color: #f0f0f0;
             /* Patrón de cuadrícula sutil para fondo técnico */
             background-image: linear-gradient(#e5e5e5 1px, transparent 1px), linear-gradient(90deg, #e5e5e5 1px, transparent 1px);
             background-size: 20px 20px;
-        }
-        .wf-box {
-            /* Caja genérica de wireframe */
-            background-color: white;
-            border: 1px solid #cbd5e1;
-            position: relative;
-        }
-        .wf-placeholder-img {
-            /* Placeholder de imagen */
-            background-color: #e2e8f0;
-            border: 2px dashed #94a3b8;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #64748b;
-            font-family: monospace;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-        }
-        .wf-label {
-            /* Etiqueta descriptiva para el diseñador/cliente */
-            font-family: monospace;
-            font-size: 0.65rem;
-            color: #ef4444; /* Rojo para notas de estructura */
-            background: rgba(255, 255, 255, 0.8);
-            padding: 2px 4px;
-            border: 1px solid #ef4444;
-            display: inline-block;
-            margin-bottom: 4px;
-        }
-        .page-section {
-            display: none; /* Oculto por defecto */
-        }
-        .page-section.active {
-            display: block;
-        }
-        /* Botón de navegación activo */
-        .nav-btn.active {
-            background-color: #e2e8f0;
-            font-weight: bold;
-            border-bottom: 3px solid #ef4444;
+            background-color: #f8fafc;
         }
     </style>
 </head>
-<body class="text-wire-text antialiased min-h-screen flex flex-col">
 
-    <!-- HEADER GLOBAL (Sticky) -->
-    <header class="bg-white border-b-2 border-gray-300 sticky top-0 z-50 shadow-sm">
+<body class="text-slate-600 antialiased min-h-screen flex flex-col">
+
+    <!-- HEADER -->
+    <header class="bg-white border-b-2 border-gray-200 sticky top-0 z-50 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
             <!-- Logo -->
-            <div class="w-48 h-10 wf-placeholder-img border-solid border-2 border-brand-blue">
-                [LOGO CRISTIANMUT]
-            </div>
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="text-2xl font-heading font-bold text-brand-dark tracking-tight">
+                    CRISTIAN<span class="text-brand-red">MUT</span>
+                </div>
+            </a>
 
             <!-- Navegación Desktop -->
-            <nav class="hidden md:flex space-x-1">
-                <button onclick="showPage('home')" class="nav-btn px-4 py-2 text-sm hover:bg-gray-100 transition active" id="btn-home">INICIO</button>
-                <button onclick="showPage('products')" class="nav-btn px-4 py-2 text-sm hover:bg-gray-100 transition" id="btn-products">PRODUCTOS</button>
-                <button onclick="showPage('projects')" class="nav-btn px-4 py-2 text-sm hover:bg-gray-100 transition" id="btn-projects">PROYECTOS</button>
-                <button onclick="showPage('about')" class="nav-btn px-4 py-2 text-sm hover:bg-gray-100 transition" id="btn-about">NOSOTROS</button>
-                <button onclick="showPage('contact')" class="nav-btn px-4 py-2 text-sm hover:bg-gray-100 transition" id="btn-contact">CONTACTO</button>
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html"
+                    class="text-sm font-bold text-brand-red border-b-2 border-brand-red py-2">INICIO</a>
+                <a href="products.html"
+                    class="text-sm font-bold text-slate-600 hover:text-brand-red hover:border-b-2 hover:border-brand-red py-2 transition">PRODUCTOS</a>
+                <a href="projects.html"
+                    class="text-sm font-bold text-slate-600 hover:text-brand-red hover:border-b-2 hover:border-brand-red py-2 transition">PROYECTOS</a>
+                <a href="about.html"
+                    class="text-sm font-bold text-slate-600 hover:text-brand-red hover:border-b-2 hover:border-brand-red py-2 transition">QUIÉNES
+                    SOMOS</a>
+                <a href="contact.html"
+                    class="text-sm font-bold text-slate-600 hover:text-brand-red hover:border-b-2 hover:border-brand-red py-2 transition">CONTACTO</a>
             </nav>
 
             <!-- CTA Header -->
-            <div class="flex items-center gap-2">
-                <div class="hidden md:block text-right text-xs mr-2">
-                    <div class="font-bold text-gray-800">+54 9 11 XXXX-XXXX</div>
-                    <div class="text-gray-500">Atención inmediata</div>
-                </div>
-                <button class="bg-brand-red text-white px-5 py-2 text-sm font-bold uppercase border border-red-700 shadow-sm hover:bg-red-600 flex items-center gap-2">
-                    <span class="text-lg">📱</span> WhatsApp
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/"
+                    class="bg-brand-red text-white px-5 py-2 text-sm font-bold uppercase rounded shadow hover:bg-red-600 transition flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
+                    WhatsApp
+                </a>
+                <!-- Mobile Menu Icon (Placeholder for functionality) -->
+                <button class="md:hidden p-2 text-slate-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
                 </button>
-                <!-- Mobile Menu Icon -->
-                <button class="md:hidden p-2 border border-gray-300 ml-2">☰</button>
             </div>
         </div>
     </header>
 
-    <!-- MAIN CONTENT CONTAINER -->
+    <!-- MAIN CONTENT -->
     <main class="flex-grow">
 
-        <!-- ==========================================
-             1. HOME PAGE
-        =========================================== -->
-        <div id="home" class="page-section active">
-            
-            <!-- HERO SECTION -->
-            <section class="w-full bg-slate-100 border-b border-gray-300 py-20 px-4">
-                <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <span class="wf-label">[H1 - HERO TITLE]</span>
-                        <h1 class="font-heading text-4xl md:text-5xl text-slate-800 mb-6 leading-tight">
-                            Soluciones Integrales en<br>Aislación y Refrigeración
-                        </h1>
-                        <span class="wf-label">[SHORT DESCRIPTION]</span>
-                        <p class="text-lg mb-8 max-w-lg">
-                            Optimice sus procesos industriales con tecnología de punta. Eficiencia, durabilidad y servicio técnico especializado.
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <button class="bg-brand-red text-white px-8 py-4 font-bold uppercase border-2 border-red-700 w-full sm:w-auto text-center">
-                                Cotizar por WhatsApp
-                            </button>
-                            <button class="bg-white text-slate-700 px-8 py-4 font-bold uppercase border-2 border-slate-400 w-full sm:w-auto text-center hover:bg-gray-50">
-                                Ver Catálogo
-                            </button>
-                        </div>
-                    </div>
-                    <div class="wf-placeholder-img aspect-video w-full bg-slate-200">
-                        [IMAGEN HERO: INSTALACIÓN INDUSTRIAL]
-                    </div>
-                </div>
-            </section>
-
-            <!-- SERVICES SECTION (4 Col Grid) -->
-            <section class="max-w-7xl mx-auto py-16 px-4">
-                <div class="text-center mb-12">
-                    <span class="wf-label">[SECTION TITLE]</span>
-                    <h2 class="font-heading text-3xl text-slate-800">Nuestros Servicios</h2>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Service Card Loop -->
-                    <div class="wf-box p-6 text-center hover:shadow-lg transition">
-                        <div class="w-16 h-16 mx-auto mb-4 rounded-full wf-placeholder-img bg-slate-100 border-slate-300">[ICON]</div>
-                        <h3 class="font-bold text-lg mb-2 font-heading">Aislación Térmica</h3>
-                        <p class="text-sm">Descripción corta de una línea sobre el servicio.</p>
-                    </div>
-                    <div class="wf-box p-6 text-center hover:shadow-lg transition">
-                        <div class="w-16 h-16 mx-auto mb-4 rounded-full wf-placeholder-img bg-slate-100 border-slate-300">[ICON]</div>
-                        <h3 class="font-bold text-lg mb-2 font-heading">Paneles Frigoríficos</h3>
-                        <p class="text-sm">Descripción corta de una línea sobre el servicio.</p>
-                    </div>
-                    <div class="wf-box p-6 text-center hover:shadow-lg transition">
-                        <div class="w-16 h-16 mx-auto mb-4 rounded-full wf-placeholder-img bg-slate-100 border-slate-300">[ICON]</div>
-                        <h3 class="font-bold text-lg mb-2 font-heading">Puertas Industriales</h3>
-                        <p class="text-sm">Descripción corta de una línea sobre el servicio.</p>
-                    </div>
-                    <div class="wf-box p-6 text-center hover:shadow-lg transition">
-                        <div class="w-16 h-16 mx-auto mb-4 rounded-full wf-placeholder-img bg-slate-100 border-slate-300">[ICON]</div>
-                        <h3 class="font-bold text-lg mb-2 font-heading">Mantenimiento</h3>
-                        <p class="text-sm">Descripción corta de una línea sobre el servicio.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- FEATURED PRODUCTS (3 Col Grid) -->
-            <section class="bg-slate-50 border-y border-gray-200 py-16 px-4">
-                <div class="max-w-7xl mx-auto">
-                    <div class="flex justify-between items-end mb-8">
-                        <div>
-                            <span class="wf-label">[H2 TITLE]</span>
-                            <h2 class="font-heading text-3xl text-slate-800">Productos Destacados</h2>
-                        </div>
-                        <a href="#" class="text-brand-red font-bold underline hidden md:block">Ver todos los productos &rarr;</a>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <!-- Product Card -->
-                        <div class="wf-box p-4 flex flex-col h-full">
-                            <div class="wf-placeholder-img aspect-square mb-4">[FOTO PRODUCTO]</div>
-                            <h3 class="font-bold text-lg mb-2">Panel PUR/PIR</h3>
-                            <p class="text-sm text-gray-600 mb-4 flex-grow">Paneles de alta densidad para cámaras frigoríficas industriales.</p>
-                            <button class="w-full border border-brand-red text-brand-red py-2 font-bold text-sm hover:bg-red-50 flex justify-center items-center gap-2">
-                                <span>📱</span> Consultar
-                            </button>
-                        </div>
-                        <!-- Product Card -->
-                        <div class="wf-box p-4 flex flex-col h-full">
-                            <div class="wf-placeholder-img aspect-square mb-4">[FOTO PRODUCTO]</div>
-                            <h3 class="font-bold text-lg mb-2">Puerta Corrediza</h3>
-                            <p class="text-sm text-gray-600 mb-4 flex-grow">Sistemas de apertura automática para alto tránsito.</p>
-                            <button class="w-full border border-brand-red text-brand-red py-2 font-bold text-sm hover:bg-red-50 flex justify-center items-center gap-2">
-                                <span>📱</span> Consultar
-                            </button>
-                        </div>
-                        <!-- Product Card -->
-                        <div class="wf-box p-4 flex flex-col h-full">
-                            <div class="wf-placeholder-img aspect-square mb-4">[FOTO PRODUCTO]</div>
-                            <h3 class="font-bold text-lg mb-2">Unidad Condensadora</h3>
-                            <p class="text-sm text-gray-600 mb-4 flex-grow">Equipos de refrigeración compactos y eficientes.</p>
-                            <button class="w-full border border-brand-red text-brand-red py-2 font-bold text-sm hover:bg-red-50 flex justify-center items-center gap-2">
-                                <span>📱</span> Consultar
-                            </button>
-                        </div>
-                    </div>
-                    <div class="mt-8 text-center md:hidden">
-                         <a href="#" class="text-brand-red font-bold underline">Ver todos los productos &rarr;</a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- WHY CHOOSE US -->
-            <section class="max-w-7xl mx-auto py-16 px-4">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-                    <div>
-                        <div class="text-5xl font-heading text-brand-red mb-2 font-bold">15+</div>
-                        <h4 class="font-bold uppercase tracking-wide text-slate-800">Años de Experiencia</h4>
-                        <p class="text-sm mt-2">Trayectoria comprobada en el sector industrial.</p>
-                    </div>
-                    <div>
-                        <div class="text-5xl font-heading text-brand-red mb-2 font-bold">500+</div>
-                        <h4 class="font-bold uppercase tracking-wide text-slate-800">Proyectos Ejecutados</h4>
-                        <p class="text-sm mt-2">Clientes satisfechos en todo el país.</p>
-                    </div>
-                    <div>
-                        <div class="text-5xl font-heading text-brand-red mb-2 font-bold">24/7</div>
-                        <h4 class="font-bold uppercase tracking-wide text-slate-800">Soporte Técnico</h4>
-                        <p class="text-sm mt-2">Atención post-venta garantizada.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- FINAL CTA -->
-            <section class="bg-slate-800 text-white py-16 px-4 text-center">
-                <span class="wf-label text-white border-white">[CTA SECTION]</span>
-                <h2 class="font-heading text-3xl md:text-4xl mb-6 mt-4">¿Necesita asesoramiento técnico para su planta?</h2>
-                <button class="bg-brand-red text-white text-lg px-10 py-4 font-bold rounded shadow-lg hover:bg-red-600 transition flex items-center justify-center gap-3 mx-auto">
-                    <span>📱</span> HABLAR CON UN INGENIERO
-                </button>
-            </section>
-        </div>
-
-
-        <!-- ==========================================
-             2. PRODUCTS (CATALOG) PAGE
-        =========================================== -->
-        <div id="products" class="page-section">
-            <!-- Header simple -->
-            <div class="bg-slate-100 py-12 px-4 border-b border-gray-300">
-                <div class="max-w-7xl mx-auto">
-                    <h1 class="font-heading text-4xl text-slate-800 mb-2">Catálogo de Productos</h1>
-                    <p class="text-lg text-gray-600">Equipamiento y materiales para refrigeración industrial.</p>
-                </div>
-            </div>
-
-            <!-- Grid -->
-            <div class="max-w-7xl mx-auto py-12 px-4">
-                <!-- Filters Placeholder -->
-                <div class="mb-8 flex gap-4 overflow-x-auto pb-2 border-b border-gray-200">
-                    <button class="px-4 py-1 bg-slate-800 text-white text-sm font-bold rounded-full">Todos</button>
-                    <button class="px-4 py-1 bg-gray-200 text-gray-700 text-sm font-bold rounded-full">Paneles</button>
-                    <button class="px-4 py-1 bg-gray-200 text-gray-700 text-sm font-bold rounded-full">Puertas</button>
-                    <button class="px-4 py-1 bg-gray-200 text-gray-700 text-sm font-bold rounded-full">Equipos</button>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                    <!-- Repeater 6 times -->
-                    <!-- Card 1 (Link to detail) -->
-                    <div class="wf-box group cursor-pointer" onclick="showPage('product-detail')">
-                        <div class="wf-placeholder-img aspect-square relative">
-                             [IMAGEN PRODUCTO]
-                             <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition"></div>
-                        </div>
-                        <div class="p-5 border-t border-gray-200">
-                            <h3 class="font-bold text-lg mb-2 group-hover:text-brand-red transition">Panel Frigorífico PIR</h3>
-                            <p class="text-sm text-gray-500 mb-4">Espesores de 50mm a 200mm. Alta eficiencia.</p>
-                            <button class="w-full bg-brand-red text-white py-2 font-bold text-sm uppercase flex justify-center gap-2">
-                                <span>📱</span> Cotizar
-                            </button>
-                        </div>
-                    </div>
-                    <!-- Card 2 -->
-                    <div class="wf-box group cursor-pointer" onclick="showPage('product-detail')">
-                        <div class="wf-placeholder-img aspect-square">[IMAGEN PRODUCTO]</div>
-                        <div class="p-5 border-t border-gray-200">
-                            <h3 class="font-bold text-lg mb-2">Puerta Seccional</h3>
-                            <p class="text-sm text-gray-500 mb-4">Ideal para muelles de carga.</p>
-                            <button class="w-full bg-brand-red text-white py-2 font-bold text-sm uppercase flex justify-center gap-2">
-                                <span>📱</span> Cotizar
-                            </button>
-                        </div>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="wf-box group cursor-pointer" onclick="showPage('product-detail')">
-                        <div class="wf-placeholder-img aspect-square">[IMAGEN PRODUCTO]</div>
-                        <div class="p-5 border-t border-gray-200">
-                            <h3 class="font-bold text-lg mb-2">Evaporador Cúbico</h3>
-                            <p class="text-sm text-gray-500 mb-4">Para cámaras de media y baja temperatura.</p>
-                            <button class="w-full bg-brand-red text-white py-2 font-bold text-sm uppercase flex justify-center gap-2">
-                                <span>📱</span> Cotizar
-                            </button>
-                        </div>
-                    </div>
-                    <!-- Card 4, 5, 6 Placeholders -->
-                    <div class="wf-box bg-gray-50 p-8 flex items-center justify-center text-gray-400 font-bold border-dashed border-2 border-gray-300">PRODUCTO 4</div>
-                    <div class="wf-box bg-gray-50 p-8 flex items-center justify-center text-gray-400 font-bold border-dashed border-2 border-gray-300">PRODUCTO 5</div>
-                    <div class="wf-box bg-gray-50 p-8 flex items-center justify-center text-gray-400 font-bold border-dashed border-2 border-gray-300">PRODUCTO 6</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ==========================================
-             3. PRODUCT DETAIL PAGE
-        =========================================== -->
-        <div id="product-detail" class="page-section">
-             <!-- Breadcrumb -->
-             <div class="max-w-7xl mx-auto px-4 py-4 text-sm text-gray-500">
-                <span class="cursor-pointer hover:underline" onclick="showPage('home')">Inicio</span> > 
-                <span class="cursor-pointer hover:underline" onclick="showPage('products')">Productos</span> > 
-                <span class="font-bold text-gray-800">Panel Frigorífico PIR</span>
-             </div>
-
-             <div class="max-w-7xl mx-auto px-4 py-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <!-- Left: Gallery -->
-                    <div class="space-y-4">
-                        <div class="wf-placeholder-img w-full aspect-[4/3] text-2xl">[FOTO PRINCIPAL]</div>
-                        <div class="grid grid-cols-4 gap-4">
-                            <div class="wf-placeholder-img aspect-square">[THUMB]</div>
-                            <div class="wf-placeholder-img aspect-square">[THUMB]</div>
-                            <div class="wf-placeholder-img aspect-square">[THUMB]</div>
-                            <div class="wf-placeholder-img aspect-square">[THUMB]</div>
-                        </div>
-                    </div>
-
-                    <!-- Right: Info -->
-                    <div>
-                        <span class="wf-label">[H1 PRODUCT TITLE]</span>
-                        <h1 class="font-heading text-4xl text-slate-800 mb-4">Panel Frigorífico PIR (Poliisocianurato)</h1>
-                        
-                        <div class="bg-blue-50 border-l-4 border-brand-blue p-4 mb-6">
-                            <p class="font-bold text-brand-blue text-sm">USO RECOMENDADO</p>
-                            <p class="text-sm">Cámaras de congelado, túneles de frío, laboratorios.</p>
-                        </div>
-
-                        <p class="text-gray-600 mb-8 leading-relaxed">
-                            Panel aislante con núcleo de espuma rígida de poliisocianurato (PIR), revestido en ambas caras con lámina de acero pre-pintado. Ofrece la mejor resistencia al fuego y aislamiento térmico del mercado.
-                        </p>
-
-                        <!-- Primary CTA -->
-                        <div class="bg-white border border-gray-300 p-6 rounded shadow-sm mb-8">
-                            <p class="text-sm text-gray-500 mb-2 text-center uppercase tracking-wide">Solicitar presupuesto directo</p>
-                            <button class="w-full bg-brand-red text-white text-lg py-4 font-bold uppercase hover:bg-red-600 transition flex items-center justify-center gap-3">
-                                <span>📱</span> Consultar por WhatsApp
-                            </button>
-                            <p class="text-xs text-center mt-2 text-gray-400">Respuesta promedio: 15 minutos</p>
-                        </div>
-
-                        <!-- Technical Specs Block -->
-                        <div>
-                            <h3 class="font-heading text-xl mb-4 border-b border-gray-200 pb-2">Especificaciones Técnicas</h3>
-                            <ul class="space-y-2 text-sm">
-                                <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
-                                    <span class="font-bold text-gray-700">Espesor:</span>
-                                    <span>50mm / 100mm / 150mm</span>
-                                </li>
-                                <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
-                                    <span class="font-bold text-gray-700">Densidad:</span>
-                                    <span>40 kg/m3</span>
-                                </li>
-                                <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
-                                    <span class="font-bold text-gray-700">Ancho útil:</span>
-                                    <span>1150 mm</span>
-                                </li>
-                                <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
-                                    <span class="font-bold text-gray-700">Reacción al fuego:</span>
-                                    <span>Clase B-s1, d0</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Content Section -->
-                <div class="mt-16 pt-16 border-t border-gray-300">
-                    <h2 class="font-heading text-2xl mb-8">Beneficios Principales</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 bg-gray-200 shrink-0 rounded flex items-center justify-center font-bold text-gray-400">ICON</div>
-                            <div>
-                                <h4 class="font-bold">Ahorro Energético</h4>
-                                <p class="text-sm text-gray-600">Reduce hasta un 40% el consumo eléctrico.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 bg-gray-200 shrink-0 rounded flex items-center justify-center font-bold text-gray-400">ICON</div>
-                            <div>
-                                <h4 class="font-bold">Montaje Rápido</h4>
-                                <p class="text-sm text-gray-600">Sistema machihembrado de fácil instalación.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 bg-gray-200 shrink-0 rounded flex items-center justify-center font-bold text-gray-400">ICON</div>
-                            <div>
-                                <h4 class="font-bold">Certificación</h4>
-                                <p class="text-sm text-gray-600">Cumple normas SENASA e internacionales.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-             </div>
-
-             <!-- Sticky Mobile CTA -->
-             <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-300 p-4 shadow-lg z-40">
-                <button class="w-full bg-brand-red text-white font-bold py-3 uppercase rounded">
-                    Cotizar por WhatsApp
-                </button>
-             </div>
-        </div>
-
-        <!-- ==========================================
-             4. PROJECTS PAGE
-        =========================================== -->
-        <div id="projects" class="page-section">
-             <div class="bg-slate-800 text-white py-16 px-4 text-center">
-                 <h1 class="font-heading text-4xl mb-4">Proyectos Realizados</h1>
-                 <p class="max-w-2xl mx-auto text-gray-400">Galería de obras industriales ejecutadas por nuestro equipo.</p>
-             </div>
-
-             <div class="max-w-7xl mx-auto px-4 py-16">
-                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                     <!-- Project Item -->
-                     <div class="wf-box p-4">
-                         <div class="wf-placeholder-img w-full h-64 mb-4">[FOTO OBRA]</div>
-                         <div class="flex justify-between items-start">
-                             <div>
-                                 <h3 class="font-bold text-xl text-slate-800">Planta Frigorífica Avícola</h3>
-                                 <p class="text-sm text-gray-500 font-bold uppercase mb-2">Buenos Aires</p>
-                                 <p class="text-gray-600 text-sm">Instalación de 5.000m2 de paneles y 20 puertas automáticas.</p>
-                             </div>
-                         </div>
-                         <div class="mt-4 pt-4 border-t border-gray-200">
-                             <span class="text-xs font-bold text-brand-blue bg-blue-100 px-2 py-1 rounded">Resultado: Ahorro energético 30%</span>
-                         </div>
-                     </div>
-                     <!-- Project Item -->
-                     <div class="wf-box p-4">
-                        <div class="wf-placeholder-img w-full h-64 mb-4">[FOTO OBRA]</div>
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="font-bold text-xl text-slate-800">Centro Logístico Farmacéutico</h3>
-                                <p class="text-sm text-gray-500 font-bold uppercase mb-2">Córdoba</p>
-                                <p class="text-gray-600 text-sm">Construcción de cámaras validadas para medicamentos.</p>
-                            </div>
-                        </div>
-                        <div class="mt-4 pt-4 border-t border-gray-200">
-                            <span class="text-xs font-bold text-brand-blue bg-blue-100 px-2 py-1 rounded">Resultado: Estabilidad térmica total</span>
-                        </div>
-                    </div>
-                     <!-- More placeholders -->
-                     <div class="wf-box h-64 flex items-center justify-center bg-gray-50 border-dashed border-2 border-gray-300 text-gray-400 font-bold">[PROYECTO 3]</div>
-                     <div class="wf-box h-64 flex items-center justify-center bg-gray-50 border-dashed border-2 border-gray-300 text-gray-400 font-bold">[PROYECTO 4]</div>
-                 </div>
-             </div>
-        </div>
-
-        <!-- ==========================================
-             5. ABOUT US PAGE
-        =========================================== -->
-        <div id="about" class="page-section">
-            <div class="max-w-4xl mx-auto px-4 py-20">
-                <div class="text-center mb-16">
-                    <span class="wf-label">[INTRO]</span>
-                    <h1 class="font-heading text-4xl mb-6">Sobre Cristianmut SA</h1>
-                    <p class="text-xl text-gray-600 leading-relaxed">
-                        Somos una empresa líder en soluciones de refrigeración industrial con más de 15 años en el mercado. Nos especializamos en brindar eficiencia energética y seguridad operativa a grandes industrias.
+        <!-- HERO SECTION -->
+        <section class="w-full bg-slate-100 border-b border-gray-200 py-20 px-4">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="font-heading text-4xl md:text-6xl text-slate-900 mb-6 leading-tight">
+                        Soluciones en refrigeración y aislamiento industrial
+                    </h1>
+                    <p class="text-lg md:text-xl mb-8 leading-relaxed text-slate-600 max-w-xl">
+                        Diseñamos y proveemos paneles aislantes, cámaras de frío y techos industriales eficientes, con
+                        asesoramiento técnico personalizado para cada proyecto.
                     </p>
-                </div>
-
-                <div class="wf-placeholder-img w-full h-80 mb-16">[FOTO EQUIPO / INSTALACIONES]</div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-                    <div class="wf-box p-8 bg-white border-l-4 border-brand-blue">
-                        <h3 class="font-heading text-2xl mb-4">Nuestra Misión</h3>
-                        <p class="text-gray-600">Proveer soluciones de aislación de alta calidad que permitan a nuestros clientes optimizar sus recursos y garantizar la seguridad de sus productos.</p>
-                    </div>
-                    <div class="wf-box p-8 bg-white border-l-4 border-brand-red">
-                        <h3 class="font-heading text-2xl mb-4">Nuestra Visión</h3>
-                        <p class="text-gray-600">Ser el referente nacional en tecnología de refrigeración industrial, reconocidos por nuestra innovación y servicio al cliente.</p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://wa.me/"
+                            class="bg-brand-red text-white px-8 py-4 font-bold uppercase rounded shadow-lg hover:bg-red-600 transition text-center flex items-center justify-center gap-2">
+                            <span>🔴</span> Cotizar por WhatsApp
+                        </a>
+                        <a href="products.html"
+                            class="bg-white text-slate-700 px-8 py-4 font-bold uppercase border-2 border-slate-300 rounded hover:bg-white hover:border-slate-400 transition text-center shadow-sm">
+                            Ver catálogo de productos
+                        </a>
                     </div>
                 </div>
-
-                <div class="text-center">
-                    <h3 class="font-heading text-2xl mb-8">Valores Fundamentales</h3>
-                    <div class="flex flex-wrap justify-center gap-4">
-                        <span class="bg-gray-200 px-6 py-3 rounded-full font-bold text-slate-700">Compromiso</span>
-                        <span class="bg-gray-200 px-6 py-3 rounded-full font-bold text-slate-700">Calidad Certificada</span>
-                        <span class="bg-gray-200 px-6 py-3 rounded-full font-bold text-slate-700">Innovación</span>
-                    </div>
-                </div>
-
-                <div class="mt-16 text-center">
-                    <button class="bg-brand-red text-white font-bold py-3 px-8 uppercase shadow hover:bg-red-600">
-                        Hablar con un asesor
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- ==========================================
-             6. CONTACT PAGE
-        =========================================== -->
-        <div id="contact" class="page-section">
-            <div class="max-w-7xl mx-auto px-4 py-16">
-                <div class="text-center mb-12">
-                    <h1 class="font-heading text-4xl mb-4">Contacto</h1>
-                    <p class="text-gray-600">Estamos listos para asesorarlo en su próximo proyecto.</p>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    <!-- Left: Form -->
-                    <div class="bg-white p-8 wf-box">
-                        <h3 class="font-heading text-xl mb-6">Envíenos un mensaje</h3>
-                        <form class="space-y-4">
-                            <div>
-                                <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Nombre Completo</label>
-                                <div class="h-10 bg-gray-100 border border-gray-300 w-full"></div>
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Email Corporativo</label>
-                                <div class="h-10 bg-gray-100 border border-gray-300 w-full"></div>
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Teléfono</label>
-                                <div class="h-10 bg-gray-100 border border-gray-300 w-full"></div>
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Mensaje / Consulta</label>
-                                <div class="h-32 bg-gray-100 border border-gray-300 w-full"></div>
-                            </div>
-                            <button type="button" class="bg-brand-blue text-white font-bold py-3 w-full uppercase hover:bg-slate-700">Enviar Formulario</button>
-                        </form>
-                    </div>
-
-                    <!-- Right: Info & WA -->
-                    <div class="space-y-8">
-                        <!-- High Priority WA Box -->
-                        <div class="bg-red-50 border-2 border-brand-red p-8 text-center rounded-lg">
-                            <h3 class="font-bold text-brand-red text-xl mb-2">¿Respuesta Inmediata?</h3>
-                            <p class="text-gray-600 mb-6">Contacte directamente a nuestro equipo comercial por WhatsApp.</p>
-                            <button class="bg-brand-red text-white text-xl py-4 px-8 font-bold w-full uppercase shadow-lg hover:bg-red-600 flex items-center justify-center gap-3">
-                                <span>📱</span> INICIAR CHAT AHORA
-                            </button>
-                        </div>
-
-                        <!-- Location Info -->
-                        <div class="wf-box p-8 bg-white">
-                            <h4 class="font-bold mb-4 border-b border-gray-200 pb-2">Información de Contacto</h4>
-                            <ul class="space-y-4 text-sm text-gray-600">
-                                <li class="flex gap-3">
-                                    <span class="font-bold w-20">Oficina:</span>
-                                    <span>Calle Industrial 1234, Parque Industrial, Buenos Aires</span>
-                                </li>
-                                <li class="flex gap-3">
-                                    <span class="font-bold w-20">Email:</span>
-                                    <span>ventas@cristianmut.com</span>
-                                </li>
-                                <li class="flex gap-3">
-                                    <span class="font-bold w-20">Horario:</span>
-                                    <span>Lun - Vie: 8:00 - 17:00 hs</span>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <!-- Map Placeholder -->
-                        <div class="wf-placeholder-img w-full h-48 bg-gray-200">
-                            [MAPA GOOGLE MAPS]
-                        </div>
+                <!-- Hero Image Placeholder -->
+                <div
+                    class="w-full aspect-[4/3] bg-slate-200 border-2 border-dashed border-slate-300 rounded-lg flex items-center justify-center text-slate-400 font-bold uppercase tracking-wider relative overflow-hidden group">
+                    <span class="z-10">[IMAGEN HERO]</span>
+                    <div
+                        class="absolute inset-0 bg-slate-300 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition duration-1000 opacity-30">
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
+        <!-- WHAT WE DO -->
+        <section class="max-w-7xl mx-auto py-20 px-4">
+            <div class="text-center mb-16 max-w-3xl mx-auto">
+                <span
+                    class="bg-blue-100 text-brand-blue text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">Qué
+                    Hacemos</span>
+                <h2 class="font-heading text-3xl md:text-4xl text-slate-900 mb-6">Soluciones pensadas para uso
+                    industrial y comercial</h2>
+                <p class="text-lg text-slate-600">
+                    Acompañamos a empresas, industrias y comercios en el diseño e implementación de soluciones térmicas
+                    eficientes, durables y adaptadas a cada necesidad.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Item 1 -->
+                <div
+                    class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition text-center group">
+                    <div
+                        class="w-16 h-16 bg-slate-100 rounded-full mx-auto mb-6 flex items-center justify-center text-3xl group-hover:bg-brand-red group-hover:text-white transition duration-300">
+                        ❄️</div>
+                    <h3 class="font-heading text-xl text-slate-900 font-bold mb-2">Paneles aislantes</h3>
+                </div>
+                <!-- Item 2 -->
+                <div
+                    class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition text-center group">
+                    <div
+                        class="w-16 h-16 bg-slate-100 rounded-full mx-auto mb-6 flex items-center justify-center text-3xl group-hover:bg-brand-red group-hover:text-white transition duration-300">
+                        🏢</div>
+                    <h3 class="font-heading text-xl text-slate-900 font-bold mb-2">Cámaras de frío</h3>
+                </div>
+                <!-- Item 3 -->
+                <div
+                    class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition text-center group">
+                    <div
+                        class="w-16 h-16 bg-slate-100 rounded-full mx-auto mb-6 flex items-center justify-center text-3xl group-hover:bg-brand-red group-hover:text-white transition duration-300">
+                        🏭</div>
+                    <h3 class="font-heading text-xl text-slate-900 font-bold mb-2">Techos industriales</h3>
+                </div>
+                <!-- Item 4 -->
+                <div
+                    class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition text-center group">
+                    <div
+                        class="w-16 h-16 bg-slate-100 rounded-full mx-auto mb-6 flex items-center justify-center text-3xl group-hover:bg-brand-red group-hover:text-white transition duration-300">
+                        📐</div>
+                    <h3 class="font-heading text-xl text-slate-900 font-bold mb-2">Proyectos a medida</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY CHOOSE US -->
+        <section class="bg-slate-900 text-white py-20 px-4">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <span class="text-brand-red font-bold uppercase tracking-wider text-sm mb-2 block">Por qué
+                            elegirnos</span>
+                        <h2 class="font-heading text-3xl md:text-5xl mb-6">Experiencia, calidad y asesoramiento técnico
+                        </h2>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-4">
+                                <span class="bg-brand-red rounded-full p-1 mt-1 flex-shrink-0"><svg
+                                        class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg></span>
+                                <span class="text-lg text-slate-300">Asesoramiento técnico desde el primer
+                                    contacto</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="bg-brand-red rounded-full p-1 mt-1 flex-shrink-0"><svg
+                                        class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg></span>
+                                <span class="text-lg text-slate-300">Soluciones eficientes y durables</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="bg-brand-red rounded-full p-1 mt-1 flex-shrink-0"><svg
+                                        class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg></span>
+                                <span class="text-lg text-slate-300">Materiales de calidad industrial</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="bg-brand-red rounded-full p-1 mt-1 flex-shrink-0"><svg
+                                        class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg></span>
+                                <span class="text-lg text-slate-300">Atención personalizada en cada proyecto</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Stats or Image -->
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-slate-800 p-8 rounded-lg border-l-4 border-brand-red">
+                            <div class="text-4xl font-heading font-bold text-white mb-2">+15</div>
+                            <div class="text-slate-400 text-sm font-bold uppercase">Años de experiencia</div>
+                        </div>
+                        <div class="bg-slate-800 p-8 rounded-lg border-l-4 border-brand-red">
+                            <div class="text-4xl font-heading font-bold text-white mb-2">+500</div>
+                            <div class="text-slate-400 text-sm font-bold uppercase">Proyectos realizados</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED PRODUCTS -->
+        <section class="max-w-7xl mx-auto py-20 px-4">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div class="max-w-2xl">
+                    <span
+                        class="bg-blue-100 text-brand-blue text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">Catálogo</span>
+                    <h2 class="font-heading text-3xl md:text-4xl text-slate-900 mb-4">Nuestros productos</h2>
+                    <p class="text-slate-600 text-lg">Conocé nuestras principales soluciones y consultanos para recibir
+                        asesoramiento técnico y cotización.</p>
+                </div>
+                <a href="products.html" class="hidden md:inline-block text-brand-red font-bold hover:underline">Ver todo
+                    el catálogo &rarr;</a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div
+                    class="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition flex flex-col">
+                    <div class="bg-slate-200 aspect-[4/3] flex items-center justify-center text-slate-400 font-bold">
+                        [FOTO PANEL]</div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-heading text-xl font-bold text-slate-900 mb-2">Paneles Aislantes</h3>
+                        <p class="text-slate-600 text-sm mb-6 flex-grow">Paneles diseñados para aislamiento térmico
+                            eficiente en cámaras de frío y estructuras industriales.</p>
+                        <a href="https://wa.me/"
+                            class="w-full border-2 border-brand-red text-brand-red py-2 rounded font-bold uppercase text-sm hover:bg-brand-red hover:text-white transition text-center block">
+                            Cotizar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div
+                    class="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition flex flex-col">
+                    <div class="bg-slate-200 aspect-[4/3] flex items-center justify-center text-slate-400 font-bold">
+                        [FOTO PUERTA]</div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-heading text-xl font-bold text-slate-900 mb-2">Puertas Frigoríficas</h3>
+                        <p class="text-slate-600 text-sm mb-6 flex-grow">Sistemas de apertura y cierre hermético para
+                            máxima conservación de temperatura.</p>
+                        <a href="https://wa.me/"
+                            class="w-full border-2 border-brand-red text-brand-red py-2 rounded font-bold uppercase text-sm hover:bg-brand-red hover:text-white transition text-center block">
+                            Cotizar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div
+                    class="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition flex flex-col">
+                    <div class="bg-slate-200 aspect-[4/3] flex items-center justify-center text-slate-400 font-bold">
+                        [FOTO TECHO]</div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-heading text-xl font-bold text-slate-900 mb-2">Techos Industriales</h3>
+                        <p class="text-slate-600 text-sm mb-6 flex-grow">Cubiertas metálicas con aislación integrada
+                            para naves industriales.</p>
+                        <a href="https://wa.me/"
+                            class="w-full border-2 border-brand-red text-brand-red py-2 rounded font-bold uppercase text-sm hover:bg-brand-red hover:text-white transition text-center block">
+                            Cotizar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 text-center md:hidden">
+                <a href="products.html" class="inline-block text-brand-red font-bold hover:underline">Ver todo el
+                    catálogo &rarr;</a>
+            </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section class="bg-brand-blue py-20 px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="font-heading text-3xl md:text-5xl text-white mb-6">¿Necesitás una solución de refrigeración o
+                    aislamiento?</h2>
+                <p class="text-xl text-slate-200 mb-10 max-w-2xl mx-auto">Nuestro equipo está listo para asesorarte y
+                    ayudarte a elegir la mejor opción para tu proyecto.</p>
+                <a href="https://wa.me/"
+                    class="inline-flex bg-brand-red text-white text-lg px-10 py-5 font-bold rounded shadow-lg hover:bg-red-600 transition items-center gap-3">
+                    <span>🔴</span> Hablar por WhatsApp
+                </a>
+            </div>
+        </section>
     </main>
 
-    <!-- FOOTER GLOBAL -->
-    <footer class="bg-slate-900 text-slate-400 py-12 border-t-4 border-brand-red">
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t-8 border-brand-red">
         <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 text-sm">
             <div class="col-span-1 md:col-span-1">
-                <div class="text-white font-heading font-bold text-xl mb-4">CRISTIANMUT SA</div>
-                <p class="mb-4">Expertos en aislación y refrigeración industrial.</p>
-                <div class="flex gap-2">
-                    <div class="w-8 h-8 bg-slate-700 rounded flex items-center justify-center">Li</div>
-                    <div class="w-8 h-8 bg-slate-700 rounded flex items-center justify-center">Fb</div>
-                    <div class="w-8 h-8 bg-slate-700 rounded flex items-center justify-center">Ig</div>
+                <div class="text-white font-heading font-bold text-2xl mb-4 tracking-tight">CRISTIAN<span
+                        class="text-brand-red">MUT</span></div>
+                <p class="mb-6 leading-relaxed">Soluciones integrales de alta calidad para la industria frigorífica y
+                    construcción civil.</p>
+                <div class="flex gap-3">
+                    <a href="#"
+                        class="w-10 h-10 bg-slate-800 rounded flex items-center justify-center hover:bg-brand-red hover:text-white transition">IG</a>
+                    <a href="#"
+                        class="w-10 h-10 bg-slate-800 rounded flex items-center justify-center hover:bg-brand-red hover:text-white transition">LI</a>
+                    <a href="#"
+                        class="w-10 h-10 bg-slate-800 rounded flex items-center justify-center hover:bg-brand-red hover:text-white transition">FB</a>
                 </div>
             </div>
             <div>
-                <h4 class="text-white font-bold uppercase mb-4">Navegación</h4>
-                <ul class="space-y-2">
-                    <li><a href="#" onclick="showPage('home')" class="hover:text-white">Inicio</a></li>
-                    <li><a href="#" onclick="showPage('products')" class="hover:text-white">Productos</a></li>
-                    <li><a href="#" onclick="showPage('projects')" class="hover:text-white">Proyectos</a></li>
-                    <li><a href="#" onclick="showPage('contact')" class="hover:text-white">Contacto</a></li>
+                <h4 class="text-white font-heading font-bold uppercase mb-6 tracking-wider">Navegación</h4>
+                <ul class="space-y-3">
+                    <li><a href="index.html"
+                            class="hover:text-white hover:underline decoration-brand-red underline-offset-4 transition">Inicio</a>
+                    </li>
+                    <li><a href="products.html"
+                            class="hover:text-white hover:underline decoration-brand-red underline-offset-4 transition">Productos</a>
+                    </li>
+                    <li><a href="projects.html"
+                            class="hover:text-white hover:underline decoration-brand-red underline-offset-4 transition">Proyectos</a>
+                    </li>
+                    <li><a href="about.html"
+                            class="hover:text-white hover:underline decoration-brand-red underline-offset-4 transition">Quiénes
+                            Somos</a></li>
+                    <li><a href="contact.html"
+                            class="hover:text-white hover:underline decoration-brand-red underline-offset-4 transition">Contacto</a>
+                    </li>
                 </ul>
             </div>
             <div>
-                <h4 class="text-white font-bold uppercase mb-4">Legal</h4>
-                <ul class="space-y-2">
-                    <li><a href="#" class="hover:text-white">Política de Privacidad</a></li>
-                    <li><a href="#" class="hover:text-white">Términos y Condiciones</a></li>
+                <h4 class="text-white font-heading font-bold uppercase mb-6 tracking-wider">Legal</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="hover:text-white transition">Política de Privacidad</a></li>
+                    <li><a href="#" class="hover:text-white transition">Términos y Condiciones</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="text-white font-bold uppercase mb-4">Contacto</h4>
-                <p>+54 9 11 XXXX-XXXX</p>
-                <p>ventas@cristianmut.com</p>
+                <h4 class="text-white font-heading font-bold uppercase mb-6 tracking-wider">Contacto</h4>
+                <ul class="space-y-3">
+                    <li class="flex items-center gap-2">
+                        <span>📞</span> +54 9 11 XXXX-XXXX
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span>📧</span> ventas@cristianmut.com
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span>📍</span> Buenos Aires, Argentina
+                    </li>
+                </ul>
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-slate-800 text-xs text-center">
-            &copy; 2024 Cristianmut SA. Todos los derechos reservados.
+            &copy; 2024 Cristian Mut SA. Todos los derechos reservados.
         </div>
     </footer>
 
-    <!-- SCRIPT simple para navegación -->
-    <script>
-        function showPage(pageId) {
-            // 1. Ocultar todas las secciones
-            const sections = document.querySelectorAll('.page-section');
-            sections.forEach(sec => sec.classList.remove('active'));
-
-            // 2. Mostrar la sección seleccionada
-            const activeSection = document.getElementById(pageId);
-            if (activeSection) {
-                activeSection.classList.add('active');
-            }
-
-            // 3. Actualizar estado botones nav (opcional)
-            const navBtns = document.querySelectorAll('.nav-btn');
-            navBtns.forEach(btn => btn.classList.remove('active'));
-            
-            // Mapeo simple de botón a ID
-            const btnId = 'btn-' + (pageId === 'product-detail' ? 'products' : pageId); 
-            const activeBtn = document.getElementById(btnId);
-            if(activeBtn) activeBtn.classList.add('active');
-
-            // Scroll al top
-            window.scrollTo(0,0);
-        }
-    </script>
 </body>
+
 </html>
