@@ -304,8 +304,8 @@
                     <span class="hidden md:inline">WhatsApp</span>
 
                 </a>
-                <!-- Mobile Menu Icon -->
-                <button id="mobile-menu-btn" class="md:hidden p-2 text-white focus:outline-none">
+                <!-- Mobile Menu Icon - Navigation Menu -->
+                <button id="nav-mobile-menu-btn" class="md:hidden p-2 text-white focus:outline-none">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -313,15 +313,6 @@
                     </svg>
                 </button>
             </div>
-        </div>
-        <!-- Mobile Menu Icon - Navigation Menu (not sidebar) -->
-        <button id="nav-mobile-menu-btn" class="md:hidden p-2 text-white focus:outline-none">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-        </button>
-        </div>
         </div>
 
         <!-- Mobile Menu (Hidden by default) -->
@@ -620,134 +611,136 @@
     </footer>
 
     <script>
-        // Toggle category expansion
-        function toggleCategory(categoryId) {
-            const list = document.getElementById(categoryId + '-list');
-            const icon = document.getElementById(categoryId + '-icon');
-            const category = event.currentTarget;
+        document.addEventListener('DOMContentLoaded', function () {
+            // Toggle category expansion
+            window.toggleCategory = function (categoryId) {
+                const list = document.getElementById(categoryId + '-list');
+                const icon = document.getElementById(categoryId + '-icon');
+                const category = event.currentTarget;
 
-            // Toggle visibility
-            list.classList.toggle('hidden');
-            icon.classList.toggle('rotate-180');
+                // Toggle visibility
+                list.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
 
-            // Toggle active state
-            document.querySelectorAll('.category').forEach(cat => {
-                if (cat !== category) {
-                    cat.classList.remove('active');
-                    cat.classList.add('bg-gray-100', 'text-gray-800');
-                    cat.classList.remove('bg-gray-800', 'text-white');
+                // Toggle active state
+                document.querySelectorAll('.category').forEach(cat => {
+                    if (cat !== category) {
+                        cat.classList.remove('active');
+                        cat.classList.add('bg-gray-100', 'text-gray-800');
+                        cat.classList.remove('bg-gray-800', 'text-white');
+                    }
+                });
+
+                if (!list.classList.contains('hidden')) {
+                    category.classList.add('active', 'bg-gray-800', 'text-white');
+                    category.classList.remove('bg-gray-100', 'text-gray-800');
+                } else {
+                    category.classList.remove('active', 'bg-gray-800', 'text-white');
+                    category.classList.add('bg-gray-100', 'text-gray-800');
                 }
-            });
-
-            if (!list.classList.contains('hidden')) {
-                category.classList.add('active', 'bg-gray-800', 'text-white');
-                category.classList.remove('bg-gray-100', 'text-gray-800');
-            } else {
-                category.classList.remove('active', 'bg-gray-800', 'text-white');
-                category.classList.add('bg-gray-100', 'text-gray-800');
-            }
-        }
-
-        // Select product
-        function selectProduct(productType) {
-            // Update active subcategory
-            document.querySelectorAll('.subcategory').forEach(sub => {
-                sub.classList.remove('active');
-            });
-            event.currentTarget.classList.add('active');
-
-            // Update product info based on selection
-            const productNames = {
-                'sinusoidal': 'Foilroof: núcleo PUR - Sinusoidal',
-                'trapezoidal': 'Foilroof: núcleo PUR - Trapezoidal',
-                'teja': 'Foilroof: núcleo PUR - Teja',
-                'micronervado': 'Panel de Pared Micronervado'
             };
 
-            document.getElementById('product-name').textContent = productNames[productType] || 'Producto';
-        }
+            // Select product
+            window.selectProduct = function (productType) {
+                // Update active subcategory
+                document.querySelectorAll('.subcategory').forEach(sub => {
+                    sub.classList.remove('active');
+                });
+                event.currentTarget.classList.add('active');
 
-        // Select color
-        function selectColor(element) {
-            document.querySelectorAll('.color-swatch').forEach(swatch => {
-                swatch.classList.remove('active');
-            });
-            element.classList.add('active');
+                // Update product info based on selection
+                const productNames = {
+                    'sinusoidal': 'Foilroof: núcleo PUR - Sinusoidal',
+                    'trapezoidal': 'Foilroof: núcleo PUR - Trapezoidal',
+                    'teja': 'Foilroof: núcleo PUR - Teja',
+                    'micronervado': 'Panel de Pared Micronervado'
+                };
 
-            // Update color text
-            const colorNames = {
-                'gray': 'gris',
-                'black': 'negro',
-                'white-outline': 'blanco',
-                'white': 'blanco',
-                'light-gray': 'gris claro',
-                'brown': 'marrón'
+                document.getElementById('product-name').textContent = productNames[productType] || 'Producto';
             };
 
-            const colorText = colorNames[element.dataset.color] || 'personalizado';
-            document.getElementById('product-color').textContent = 'foil ' + colorText;
-        }
+            // Select color
+            window.selectColor = function (element) {
+                document.querySelectorAll('.color-swatch').forEach(swatch => {
+                    swatch.classList.remove('active');
+                });
+                element.classList.add('active');
 
-        // Select gallery image
-        function selectGalleryImage(element, imageNum) {
-            document.querySelectorAll('.gallery-thumb').forEach(thumb => {
-                thumb.classList.remove('active');
-            });
-            element.classList.add('active');
+                // Update color text
+                const colorNames = {
+                    'gray': 'gris',
+                    'black': 'negro',
+                    'white-outline': 'blanco',
+                    'white': 'blanco',
+                    'light-gray': 'gris claro',
+                    'brown': 'marrón'
+                };
 
-            // Here you would load the actual image
-            console.log('Loading image:', imageNum);
-        }
+                const colorText = colorNames[element.dataset.color] || 'personalizado';
+                document.getElementById('product-color').textContent = 'foil ' + colorText;
+            };
 
-        // Open modal
-        function openModal(imageSrc) {
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
-            modal.classList.add('active');
-            modalImg.src = imageSrc;
-        }
+            // Select gallery image
+            window.selectGalleryImage = function (element, imageNum) {
+                document.querySelectorAll('.gallery-thumb').forEach(thumb => {
+                    thumb.classList.remove('active');
+                });
+                element.classList.add('active');
 
-        // Close modal
-        function closeModal() {
-            document.getElementById('imageModal').classList.remove('active');
-        }
+                // Here you would load the actual image
+                console.log('Loading image:', imageNum);
+            };
 
-        // Mobile menu - changed IDs to avoid conflict
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const sidebar = document.getElementById('sidebar');
-        const sidebarOverlay = document.getElementById('sidebar-overlay');
+            // Open modal
+            window.openModal = function (imageSrc) {
+                const modal = document.getElementById('imageModal');
+                const modalImg = document.getElementById('modalImage');
+                modal.classList.add('active');
+                modalImg.src = imageSrc;
+            };
 
-        // Navigation mobile menu toggle (header menu)
-        const navMobileBtn = document.getElementById('nav-mobile-menu-btn');
-        const navMobileMenu = document.getElementById('nav-mobile-menu');
+            // Close modal
+            window.closeModal = function () {
+                document.getElementById('imageModal').classList.remove('active');
+            };
 
-        if (navMobileBtn && navMobileMenu) {
-            navMobileBtn.addEventListener('click', () => {
-                navMobileMenu.classList.toggle('hidden');
-            });
-        }
+            // Mobile menu - changed IDs to avoid conflict
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarOverlay = document.getElementById('sidebar-overlay');
 
-        // Sidebar product categories toggle (mobile button)
-        if (mobileMenuBtn && sidebar && sidebarOverlay) {
-            mobileMenuBtn.addEventListener('click', () => {
-                sidebar.classList.toggle('active');
-                sidebarOverlay.classList.toggle('hidden');
-            });
-        }
+            // Navigation mobile menu toggle (header menu)
+            const navMobileBtn = document.getElementById('nav-mobile-menu-btn');
+            const navMobileMenu = document.getElementById('nav-mobile-menu');
 
-        function closeMobileSidebar() {
-            if (sidebar && sidebarOverlay) {
-                sidebar.classList.remove('active');
-                sidebarOverlay.classList.add('hidden');
+            if (navMobileBtn && navMobileMenu) {
+                navMobileBtn.addEventListener('click', () => {
+                    navMobileMenu.classList.toggle('hidden');
+                });
             }
-        }
 
-        // Close mobile menu when clicking a subcategory
-        document.querySelectorAll('.subcategory').forEach(item => {
-            item.addEventListener('click', () => {
-                if (window.innerWidth < 1024) {
-                    closeMobileSidebar();
+            // Sidebar product categories toggle (mobile button)
+            if (mobileMenuBtn && sidebar && sidebarOverlay) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    sidebar.classList.toggle('active');
+                    sidebarOverlay.classList.toggle('hidden');
+                });
+            }
+
+            window.closeMobileSidebar = function () {
+                if (sidebar && sidebarOverlay) {
+                    sidebar.classList.remove('active');
+                    sidebarOverlay.classList.add('hidden');
                 }
+            };
+
+            // Close mobile menu when clicking a subcategory
+            document.querySelectorAll('.subcategory').forEach(item => {
+                item.addEventListener('click', () => {
+                    if (window.innerWidth < 1024) {
+                        window.closeMobileSidebar();
+                    }
+                });
             });
         });
     </script>
