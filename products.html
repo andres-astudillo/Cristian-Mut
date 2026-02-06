@@ -48,7 +48,6 @@
 
     <!-- Meta Tags Generated via https://www.opengraph.xyz -->
 
-    <!-- NOTE: You selected a new image. Please upload it to your server and replace "YOUR_IMAGE_URL_HERE" with the actual URL. -->
     <script>
         tailwind.config = {
             theme: {
@@ -58,10 +57,10 @@
                         heading: ['Viga', 'sans-serif'],
                     },
                     colors: {
-                        'brand-blue': '#142fb1', // New Brand Blue
-                        'brand-red': '#c60c17', // New Brand Red
-                        'brand-dark': '#0b1240', // Deep Royal Blue (replacing slate)
-                        'brand-light': '#f0f4ff', // Light Blue Tint
+                        'brand-blue': '#142fb1',
+                        'brand-red': '#c60c17',
+                        'brand-dark': '#0b1240',
+                        'brand-light': '#f0f4ff',
                     }
                 }
             }
@@ -69,17 +68,146 @@
     </script>
     <style>
         body {
-            background-color: #ffffff;
+            background-color: #f5f5f5;
+        }
+
+        /* Smooth transitions */
+        * {
+            transition: all 0.3s ease;
+        }
+
+        /* Sidebar styles */
+        .category {
+            cursor: pointer;
+        }
+
+        .category.active {
+            background-color: #2d2d2d;
+            color: white;
+        }
+
+        .subcategory {
+            cursor: pointer;
+            padding: 0.75rem 1rem 0.75rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .subcategory:hover {
+            background-color: #f0f0f0;
+        }
+
+        .subcategory.active {
+            color: #c60c17;
+            font-weight: 600;
+        }
+
+        /* Color selector */
+        .color-swatch {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .color-swatch:hover {
+            transform: scale(1.1);
+        }
+
+        .color-swatch.active {
+            border: 3px solid #142fb1;
+            box-shadow: 0 0 0 2px white, 0 0 0 4px #142fb1;
+        }
+
+        /* Gallery thumbnails */
+        .gallery-thumb {
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .gallery-thumb:hover {
+            border-color: #142fb1;
+        }
+
+        .gallery-thumb.active {
+            border-color: #c60c17;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-modal:hover {
+            color: #ccc;
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            transform: translateX(-100%);
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        /* Pattern icons */
+        .pattern-icon {
+            width: 30px;
+            height: 20px;
+        }
+
+        /* Hide scrollbar but keep functionality */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
 </head>
 
-<body class="text-slate-600 antialiased min-h-screen flex flex-col">
+<body class="text-slate-600 antialiased min-h-screen">
 
     <!-- HEADER -->
     <header
         class="bg-brand-blue/95 backdrop-blur-md border-b border-white/10 sticky top-0 z-50 shadow-lg transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
+            <!-- Logo -->
             <!-- Logo -->
             <a href="index.html" class="flex items-center gap-2">
                 <div class="h-10 text-white">
@@ -164,16 +292,17 @@
                     class="text-sm font-bold text-brand-light hover:text-white hover:border-b-2 hover:border-white py-2 transition">CONTACTO</a>
             </nav>
 
+
             <!-- CTA Header -->
             <div class="flex items-center gap-4">
                 <a href="https://wa.me/5492616544130"
                     class="bg-[#25D366] text-white p-2 md:px-5 md:py-2 text-sm font-bold uppercase rounded-full shadow hover:bg-[#128C7E] transition flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-5 md:w-5 fill-current"
-                        viewBox="0 0 24 24">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current" viewBox="0 0 24 24">
                         <path
                             d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
                     </svg>
                     <span class="hidden md:inline">WhatsApp</span>
+
                 </a>
                 <!-- Mobile Menu Icon -->
                 <button id="mobile-menu-btn" class="md:hidden p-2 text-white focus:outline-none">
@@ -185,9 +314,18 @@
                 </button>
             </div>
         </div>
+        <!-- Mobile Menu Icon - Navigation Menu (not sidebar) -->
+        <button id="nav-mobile-menu-btn" class="md:hidden p-2 text-white focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+        </div>
+        </div>
 
         <!-- Mobile Menu (Hidden by default) -->
-        <div id="mobile-menu"
+        <div id="nav-mobile-menu"
             class="hidden md:hidden fixed inset-0 top-20 left-0 w-full z-40 bg-brand-blue/95 backdrop-blur-md">
             <nav class="bg-brand-blue/95 w-full border-b border-white/10 shadow-xl flex flex-col p-6 space-y-4">
                 <a href="index.html" class="text-white hover:text-blue-200 font-bold">INICIO</a>
@@ -200,291 +338,230 @@
     </header>
 
     <!-- MAIN CONTENT -->
-    <main class="flex-grow">
+    <div class="flex min-h-screen">
+        <!-- SIDEBAR -->
+        <aside id="sidebar"
+            class="w-80 bg-white shadow-lg border-r border-gray-200 fixed lg:sticky top-20 left-0 h-[calc(100vh-5rem)] overflow-y-auto z-40 mobile-menu lg:transform-none">
+            <div class="p-6">
+                <h2 class="text-2xl font-heading text-gray-800 mb-6">Soluciones</h2>
 
-        <!-- HERO SECTION -->
-        <section
-            class="w-full bg-gradient-to-b from-brand-light to-white border-b border-brand-blue/10 py-20 px-4 relative overflow-hidden">
-            <!-- Decorative blobs -->
-            <div
-                class="absolute top-0 right-0 w-96 h-96 bg-brand-blue/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2">
-            </div>
-            <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-                <div class="relative z-10">
-                    <h1 class="font-heading text-4xl text-brand-dark mb-2">Catálogo de productos</h1>
-                    <p class="text-lg text-blue-900/70">
-                        Soluciones en refrigeración y aislamiento industrial para empresas, industrias y comercios.
-                    </p>
-                </div>
-                <div
-                    class="flex items-center gap-2 bg-white/80 backdrop-blur px-4 py-2 rounded-full border border-brand-blue/20 shadow-sm text-sm text-brand-blue">
-                    <span>Filtros:</span>
-                    <button class="font-bold text-brand-dark">Todos</button>
-                    <span>/</span>
-                    <button class="hover:text-brand-red">Paneles</button>
-                    <span>/</span>
-                    <button class="hover:text-brand-red">Puertas</button>
-                    <span>/</span>
-                    <button class="hover:text-brand-red">Equipos</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- PRODUCT GRID -->
-        <section class="max-w-7xl mx-auto py-16 px-4 bg-gradient-to-br from-brand-blue/5 to-white/50 rounded-3xl my-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Product Card 1 -->
-                <div
-                    class="bg-white/40 backdrop-blur-lg rounded-2xl border border-white/50 overflow-hidden shadow-lg hover:shadow-2xl transition hover:-translate-y-1 flex flex-col group">
-                    <a href="product-detail.html"
-                        class="block relative bg-gray-100 aspect-[4/3] flex items-center justify-center text-gray-400 font-bold overflow-hidden">
-                        <img src="assets/images/panel.png" alt="Paneles Aislantes"
-                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-5 transition"></div>
-                    </a>
-                    <div class="p-6 flex flex-col flex-grow relative z-10 bg-white/40">
-                        <a href="product-detail.html">
-                            <h3
-                                class="font-heading text-xl font-bold text-brand-dark mb-2 group-hover:text-brand-blue transition">
-                                Paneles Aislantes</h3>
-                        </a>
-                        <p class="text-slate-600 text-sm mb-6 flex-grow">Paneles diseñados para aislamiento térmico
-                            eficiente en cámaras de frío y estructuras industriales.</p>
-                        <a href="https://wa.me/5492616544130"
-                            class="w-full bg-[#25D366] border-2 border-[#25D366] text-white py-3 rounded-full font-bold uppercase text-sm hover:bg-[#128C7E] hover:border-[#128C7E] transition text-center flex items-center justify-center gap-2 shadow-sm">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current" viewBox="0 0 24 24">
-                                <path
-                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                <!-- Techos Category -->
+                <div class="mb-4">
+                    <div class="category bg-gray-800 text-white rounded-lg p-4 flex justify-between items-center active"
+                        onclick="toggleCategory('techos')">
+                        <span class="font-semibold">Techos</span>
+                        <svg id="techos-icon" class="w-5 h-5 transform rotate-180" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </div>
+                    <div id="techos-list" class="mt-2 space-y-1">
+                        <div class="subcategory active" onclick="selectProduct('sinusoidal')">
+                            <svg class="pattern-icon" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0,20 Q12.5,0 25,20 T50,20 T75,20 T100,20" stroke="currentColor"
+                                    stroke-width="2" fill="none" />
                             </svg>
-                            Cotizar por WhatsApp
-                        </a>
+                            <span>Sinusoidal</span>
+                        </div>
+                        <div class="subcategory" onclick="selectProduct('trapezoidal')">
+                            <svg class="pattern-icon" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0,20 L10,5 L20,5 L30,20 L40,20 L50,5 L60,5 L70,20 L80,20 L90,5 L100,5"
+                                    stroke="currentColor" stroke-width="2" fill="none" />
+                            </svg>
+                            <span>Trapezoidal</span>
+                        </div>
+                        <div class="subcategory" onclick="selectProduct('teja')">
+                            <svg class="pattern-icon" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0,20 Q8,0 16,20 Q24,0 32,20 Q40,0 48,20 Q56,0 64,20 Q72,0 80,20 Q88,0 96,20"
+                                    stroke="currentColor" stroke-width="2" fill="none" />
+                            </svg>
+                            <span>Teja</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Product Card 2 -->
-                <div
-                    class="bg-white/40 backdrop-blur-lg rounded-2xl border border-white/50 overflow-hidden shadow-lg hover:shadow-2xl transition hover:-translate-y-1 flex flex-col group">
-                    <a href="product-detail.html"
-                        class="block relative bg-gray-100 aspect-[4/3] flex items-center justify-center text-gray-400 font-bold overflow-hidden">
-                        <img src="assets/images/door.png" alt="Puertas Frigoríficas"
-                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-5 transition"></div>
-                    </a>
-                    <div class="p-6 flex flex-col flex-grow relative z-10 bg-white/40">
-                        <a href="product-detail.html">
-                            <h3
-                                class="font-heading text-xl font-bold text-brand-dark mb-2 group-hover:text-brand-blue transition">
-                                Puertas Frigoríficas</h3>
-                        </a>
-                        <p class="text-slate-600 text-sm mb-6 flex-grow">Sistemas de apertura y cierre hermético.</p>
-                        <a href="https://wa.me/5492616544130"
-                            class="w-full bg-[#25D366] border-2 border-[#25D366] text-white py-3 rounded-full font-bold uppercase text-sm hover:bg-[#128C7E] hover:border-[#128C7E] transition text-center flex items-center justify-center gap-2 shadow-sm">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current" viewBox="0 0 24 24">
-                                <path
-                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                <!-- Paredes Category -->
+                <div class="mb-4">
+                    <div class="category bg-gray-100 text-gray-800 rounded-lg p-4 flex justify-between items-center"
+                        onclick="toggleCategory('paredes')">
+                        <span class="font-semibold">Paredes</span>
+                        <svg id="paredes-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </div>
+                    <div id="paredes-list" class="mt-2 space-y-1 hidden">
+                        <div class="subcategory" onclick="selectProduct('micronervado')">
+                            <svg class="pattern-icon" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="10" y1="0" x2="10" y2="40" stroke="currentColor" stroke-width="1" />
+                                <line x1="20" y1="0" x2="20" y2="40" stroke="currentColor" stroke-width="1" />
+                                <line x1="30" y1="0" x2="30" y2="40" stroke="currentColor" stroke-width="1" />
+                                <line x1="40" y1="0" x2="40" y2="40" stroke="currentColor" stroke-width="1" />
+                                <line x1="50" y1="0" x2="50" y2="40" stroke="currentColor" stroke-width="1" />
+                                <line x1="60" y1="0" x2="60" y2="40" stroke="currentColor" stroke-width="1" />
+                                <line x1="70" y1="0" x2="70" y2="40" stroke="currentColor" stroke-width="1" />
+                                <line x1="80" y1="0" x2="80" y2="40" stroke="currentColor" stroke-width="1" />
+                                <line x1="90" y1="0" x2="90" y2="40" stroke="currentColor" stroke-width="1" />
                             </svg>
-                            Cotizar por WhatsApp
-                        </a>
+                            <span>Micronervado</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Product Card 3 -->
-                <div
-                    class="bg-white/40 backdrop-blur-lg rounded-2xl border border-white/50 overflow-hidden shadow-lg hover:shadow-2xl transition hover:-translate-y-1 flex flex-col group">
-                    <a href="product-detail.html"
-                        class="block relative bg-gray-100 aspect-[4/3] flex items-center justify-center text-gray-400 font-bold overflow-hidden">
-                        <img src="assets/images/condenser.png" alt="Unidades Condensadoras"
-                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-5 transition"></div>
-                    </a>
-                    <div class="p-6 flex flex-col flex-grow relative z-10 bg-white/40">
-                        <a href="product-detail.html">
-                            <h3
-                                class="font-heading text-xl font-bold text-brand-dark mb-2 group-hover:text-brand-blue transition">
-                                Unidades Condensadoras</h3>
-                        </a>
-                        <p class="text-slate-600 text-sm mb-6 flex-grow">Equipos compactos para refrigeración comercial.
-                        </p>
-                        <a href="https://wa.me/5492616544130"
-                            class="w-full bg-[#25D366] border-2 border-[#25D366] text-white py-3 rounded-full font-bold uppercase text-sm hover:bg-[#128C7E] hover:border-[#128C7E] transition text-center flex items-center justify-center gap-2 shadow-sm">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current" viewBox="0 0 24 24">
-                                <path
-                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-                            </svg>
-                            Cotizar por WhatsApp
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Product Card 4 -->
-                <div
-                    class="bg-white/40 backdrop-blur-lg rounded-2xl border border-white/50 overflow-hidden shadow-lg hover:shadow-2xl transition hover:-translate-y-1 flex flex-col group">
-                    <a href="product-detail.html"
-                        class="block relative bg-gray-100 aspect-[4/3] flex items-center justify-center text-gray-400 font-bold overflow-hidden">
-                        <img src="assets/images/evaporator.png" alt="Evaporadores"
-                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-5 transition"></div>
-                    </a>
-                    <div class="p-6 flex flex-col flex-grow relative z-10 bg-white/40">
-                        <a href="product-detail.html">
-                            <h3
-                                class="font-heading text-xl font-bold text-brand-dark mb-2 group-hover:text-brand-blue transition">
-                                Evaporadores</h3>
-                        </a>
-                        <p class="text-slate-600 text-sm mb-6 flex-grow">Intercambiadores de calor para distintas
-                            aplicaciones.</p>
-                        <a href="https://wa.me/5492616544130"
-                            class="w-full bg-[#25D366] border-2 border-[#25D366] text-white py-3 rounded-full font-bold uppercase text-sm hover:bg-[#128C7E] hover:border-[#128C7E] transition text-center flex items-center justify-center gap-2 shadow-sm">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current" viewBox="0 0 24 24">
-                                <path
-                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-                            </svg>
-                            Cotizar por WhatsApp
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Product Card 5 -->
-                <div
-                    class="bg-white/40 backdrop-blur-lg rounded-2xl border border-white/50 overflow-hidden shadow-lg hover:shadow-2xl transition hover:-translate-y-1 flex flex-col group">
-                    <a href="product-detail.html"
-                        class="block relative bg-gray-100 aspect-[4/3] flex items-center justify-center text-gray-400 font-bold overflow-hidden">
-                        <img src="assets/images/roof.png" alt="Techos Industriales"
-                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-5 transition"></div>
-                    </a>
-                    <div class="p-6 flex flex-col flex-grow relative z-10 bg-white/40">
-                        <a href="product-detail.html">
-                            <h3
-                                class="font-heading text-xl font-bold text-brand-dark mb-2 group-hover:text-brand-blue transition">
-                                Techos Industriales</h3>
-                        </a>
-                        <p class="text-slate-600 text-sm mb-6 flex-grow">Cubiertas con aislación PIR integrada.</p>
-                        <a href="https://wa.me/5492616544130"
-                            class="w-full bg-[#25D366] border-2 border-[#25D366] text-white py-3 rounded-full font-bold uppercase text-sm hover:bg-[#128C7E] hover:border-[#128C7E] transition text-center flex items-center justify-center gap-2 shadow-sm">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current" viewBox="0 0 24 24">
-                                <path
-                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-                            </svg>
-                            Cotizar por WhatsApp
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Product Card 6 -->
-                <div
-                    class="bg-white/40 backdrop-blur-lg rounded-2xl border border-white/50 overflow-hidden shadow-lg hover:shadow-2xl transition hover:-translate-y-1 flex flex-col group">
-                    <a href="product-detail.html"
-                        class="block relative bg-gray-100 aspect-[4/3] flex items-center justify-center text-gray-400 font-bold overflow-hidden">
-                        [IMAGEN ACCESORIO]
-                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-5 transition"></div>
-                    </a>
-                    <div class="p-6 flex flex-col flex-grow relative z-10 bg-white/40">
-                        <a href="product-detail.html">
-                            <h3
-                                class="font-heading text-xl font-bold text-brand-dark mb-2 group-hover:text-brand-blue transition">
-                                Accesorios de Montaje</h3>
-                        </a>
-                        <p class="text-slate-600 text-sm mb-6 flex-grow">Perfiles sanitarios, tornillería y selladores.
-                        </p>
-                        <a href="https://wa.me/5492616544130"
-                            class="w-full bg-[#25D366] border-2 border-[#25D366] text-white py-3 rounded-full font-bold uppercase text-sm hover:bg-[#128C7E] hover:border-[#128C7E] transition text-center flex items-center justify-center gap-2 shadow-sm">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current" viewBox="0 0 24 24">
-                                <path
-                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-                            </svg>
-                            Cotizar por WhatsApp
-                        </a>
+                <!-- Inspiración Category -->
+                <div class="mb-4">
+                    <div class="category bg-gray-100 text-gray-800 rounded-lg p-4"
+                        onclick="window.location.href='projects.html'">
+                        <span class="font-semibold">Inspiración</span>
                     </div>
                 </div>
             </div>
-        </section>
+        </aside>
 
-        <!-- CTA SECTION IN CATALOG -->
-        <section class="bg-gradient-to-r from-brand-dark to-blue-900 text-white py-16 px-4 text-center">
-            <h2 class="font-heading text-2xl md:text-3xl mb-4">¿No encontrás lo que buscás?</h2>
-            <p class="text-brand-light mb-8 max-w-2xl mx-auto">Fabricamos soluciones a medida. Consultanos por tu
-                proyecto
-                específico.</p>
-            <a href="contact.html"
-                class="inline-block bg-white text-brand-blue font-bold py-3 px-8 rounded-full shadow hover:bg-brand-blue/10 transition">
-                Contactar a un asesor
-            </a>
-        </section>
+        <!-- Overlay for mobile -->
+        <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-30 hidden lg:hidden"
+            onclick="closeMobileSidebar()"></div>
 
-    </main>
+        <!-- MAIN PRODUCT VIEWER -->
+        <main class="flex-1 lg:ml-80 p-6 lg:p-10">
+            <div class="max-w-7xl mx-auto">
+                <!-- Breadcrumb and Mobile Sidebar Button -->
+                <div class="flex items-center justify-between mb-6">
+                    <div class="text-sm text-gray-500">
+                        <a href="index.html" class="hover:text-brand-blue">Inicio</a>
+                        <span class="mx-2">/</span>
+                        <span class="text-gray-800">Catálogo de Productos</span>
+                    </div>
+                    <!-- Mobile Sidebar Toggle Button -->
+                    <button id="mobile-menu-btn"
+                        class="lg:hidden bg-brand-blue text-white px-4 py-2 rounded-lg flex items-center gap-2 shadow-md hover:bg-brand-blue/90 transition">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <span class="text-sm font-semibold">Categorías</span>
+                    </button>
+                </div>
+
+                <!-- Product Viewer Container -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 lg:p-12">
+                    <!-- Color Selector -->
+                    <div class="mb-8">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-sm font-semibold text-gray-700">Color</span>
+                            <div class="flex gap-3">
+                                <div class="color-swatch bg-gray-400 active" data-color="gray"
+                                    onclick="selectColor(this)"></div>
+                                <div class="color-swatch bg-black" data-color="black" onclick="selectColor(this)">
+                                </div>
+                                <div class="color-swatch bg-white border border-gray-300" data-color="white-outline"
+                                    onclick="selectColor(this)"></div>
+                                <div class="color-swatch bg-gray-50 border border-gray-300" data-color="white"
+                                    onclick="selectColor(this)"></div>
+                                <div class="color-swatch bg-gray-300" data-color="light-gray"
+                                    onclick="selectColor(this)"></div>
+                                <div class="color-swatch" style="background-color: #8B4513;" data-color="brown"
+                                    onclick="selectColor(this)"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Display Area -->
+                    <div class="grid lg:grid-cols-[1fr,120px] gap-8">
+                        <!-- Main Product Image -->
+                        <div class="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl p-12 flex items-center justify-center min-h-[500px]"
+                            id="main-product-area">
+                            <div class="text-center">
+                                <div
+                                    class="w-64 h-64 mx-auto mb-6 bg-white/50 rounded-lg flex items-center justify-center">
+                                    <svg class="w-32 h-32 text-gray-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <p class="text-gray-500 text-sm">Imagen del producto</p>
+                                <p class="text-xs text-gray-400 mt-2">Reemplazar con imagen real</p>
+                            </div>
+                        </div>
+
+                        <!-- Gallery Thumbnails -->
+                        <div class="space-y-3 overflow-y-auto max-h-[550px] hide-scrollbar">
+                            <div class="gallery-thumb active" onclick="selectGalleryImage(this, 1)">
+                                <div class="w-full h-24 bg-gray-200 flex items-center justify-center">
+                                    <span class="text-xs text-gray-500">Img 1</span>
+                                </div>
+                            </div>
+                            <div class="gallery-thumb" onclick="selectGalleryImage(this, 2)">
+                                <div class="w-full h-24 bg-gray-200 flex items-center justify-center">
+                                    <span class="text-xs text-gray-500">Img 2</span>
+                                </div>
+                            </div>
+                            <div class="gallery-thumb" onclick="selectGalleryImage(this, 3)">
+                                <div class="w-full h-24 bg-gray-200 flex items-center justify-center">
+                                    <span class="text-xs text-gray-500">Img 3</span>
+                                </div>
+                            </div>
+                            <div class="gallery-thumb" onclick="selectGalleryImage(this, 4)">
+                                <div class="w-full h-24 bg-gray-200 flex items-center justify-center">
+                                    <span class="text-xs text-gray-500">Img 4</span>
+                                </div>
+                            </div>
+                            <div class="gallery-thumb" onclick="selectGalleryImage(this, 5)">
+                                <div class="w-full h-24 bg-gray-200 flex items-center justify-center">
+                                    <span class="text-xs text-gray-500">Img 5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Info -->
+                    <div class="mt-10 border-t border-gray-200 pt-8">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h1 class="text-3xl font-heading text-gray-900 mb-3" id="product-name">Foilroof: núcleo
+                                    PUR</h1>
+                                <p class="text-gray-600 mb-4" id="product-desc">Panel aislante de alta eficiencia
+                                    térmica</p>
+                                <div class="flex items-center gap-6 text-sm text-gray-700">
+                                    <div>
+                                        <span class="font-semibold">Ext:</span>
+                                        <span id="product-color">foil blanco</span>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold">Espesor:</span>
+                                        <span>10mm / 30mm / 50mm</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="contact.html"
+                                class="bg-[#25D366] hover:bg-[#1da851] text-white px-8 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                                </svg>
+                                Solicitar Cotización
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage" onclick="event.stopPropagation()">
+    </div>
 
     <!-- FOOTER -->
     <footer class="bg-brand-dark text-blue-200 py-16 border-t-8 border-brand-red">
         <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 text-sm">
             <div class="col-span-1 md:col-span-1">
-                <div class="w-48 text-white mb-6">
-                    <svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 137.02 37.83"
-                        class="h-auto w-full">
-                        <defs>
-                            <style>
-                                .cls-1 {
-                                    fill: currentColor;
-                                }
-                            </style>
-                        </defs>
-                        <g>
-                            <path class="cls-1"
-                                d="M19.81,21.76v-8.17c0-1.26.34-2.24,1.03-2.95.69-.71,1.64-1.07,2.86-1.07,1.15,0,2.06.37,2.73,1.1.67.73,1.01,1.73,1.01,2.99v1.53h-2.55v-1.75c0-.55-.11-.96-.32-1.24-.22-.28-.54-.41-.96-.41s-.74.14-.96.41c-.22.28-.32.69-.32,1.24v8.89c0,.55.11.97.32,1.24.21.28.54.42.96.42s.74-.14.96-.42c.21-.28.32-.69.32-1.24v-2.17h2.55v1.67c0,1.4-.33,2.47-1,3.23-.66.76-1.61,1.14-2.83,1.14s-2.2-.37-2.84-1.12c-.64-.75-.96-1.85-.96-3.31Z" />
-                            <path class="cls-1"
-                                d="M32.04,19.15v6.7h-2.48v-15.94h3.64c1.37,0,2.36.36,2.96,1.09.61.73.91,1.9.91,3.52,0,1-.12,1.81-.37,2.42-.24.62-.64,1.11-1.2,1.5l1.83,7.41h-2.57l-1.53-6.7h-1.18ZM32.04,12.22v4.63h.98c.57,0,.97-.17,1.19-.51.22-.34.34-.98.34-1.9,0-.84-.12-1.42-.35-1.74-.24-.32-.66-.48-1.27-.48h-.89Z" />
-                            <path class="cls-1" d="M39.09,25.85v-15.94h2.53v15.94h-2.53Z" />
-                            <path class="cls-1"
-                                d="M43.35,21.8l2.37-.35c.04.81.2,1.4.47,1.79.27.39.66.58,1.18.58.45,0,.82-.14,1.1-.42.28-.28.42-.66.42-1.12,0-.83-.67-1.9-2-3.22-.1-.1-.18-.18-.23-.23-1.31-1.29-2.14-2.29-2.52-2.98-.37-.69-.55-1.43-.55-2.21,0-1.12.37-2.07,1.12-2.84.75-.77,1.66-1.15,2.73-1.15s1.9.35,2.57,1.06c.67.71,1.05,1.67,1.15,2.88l-2.43.34c-.04-.72-.17-1.22-.38-1.53-.21-.31-.54-.46-.97-.46-.4,0-.72.13-.96.4-.24.27-.36.63-.36,1.08,0,.92.78,2.13,2.34,3.63.06.06.1.1.14.14,1.14,1.1,1.89,2,2.25,2.7.36.7.54,1.48.54,2.35,0,1.16-.37,2.11-1.09,2.86-.73.75-1.65,1.12-2.76,1.12-1.23,0-2.21-.39-2.93-1.17-.72-.78-1.11-1.86-1.17-3.24Z" />
-                            <path class="cls-1" d="M51.63,12.22v-2.31h7.64v2.31h-2.58v13.63h-2.48v-13.63h-2.57Z" />
-                            <path class="cls-1" d="M60.42,25.85v-15.94h2.53v15.94h-2.53Z" />
-                            <path class="cls-1"
-                                d="M64.29,25.85l2.65-15.94h3.24l2.64,15.94h-2.55l-.5-3.45h-2.5l-.53,3.45h-2.44ZM67.58,20.14h1.89l-.85-6.66h-.16l-.89,6.66Z" />
-                            <path class="cls-1"
-                                d="M74.25,25.85v-15.94h2.22l3.15,9.52c.06.18.13.43.22.73.09.3.17.63.26.97-.08-.46-.15-.89-.2-1.28-.05-.39-.08-.68-.08-.87v-9.07h2.33v15.94h-2.33l-3.03-8.81s-.03-.09-.06-.17c-.21-.6-.36-1.12-.47-1.56.09.56.16,1.02.21,1.4.05.37.07.64.07.81v8.33h-2.3Z" />
-                            <path class="cls-1"
-                                d="M89.32,25.85v-15.94h3.31l1.62,8.83c.07.35.11.73.15,1.14.03.4.05.82.05,1.25,0-.37.02-.75.06-1.13.04-.39.1-.8.17-1.23l1.55-8.85h3.35v15.94h-2.33v-10.06c0-.29.02-.67.05-1.16.03-.48.08-1.02.14-1.62-.04.21-.08.51-.14.88-.12.71-.2,1.17-.25,1.38l-2.03,10.58h-1.24l-1.94-10.59c-.07-.43-.15-.89-.24-1.4-.09-.51-.14-.79-.15-.85.05.54.1,1.05.12,1.52.03.47.04.89.04,1.25v10.06h-2.31Z" />
-                            <path class="cls-1"
-                                d="M101.92,9.91h2.54v12.34c0,.46.12.83.36,1.11.24.28.56.42.95.42s.7-.14.92-.41c.22-.27.33-.64.33-1.11v-12.34h2.53v11.91c0,1.4-.33,2.48-.98,3.23-.65.75-1.6,1.13-2.82,1.13s-2.19-.38-2.85-1.14c-.66-.75-.98-1.85-.98-3.29v-11.85Z" />
-                            <path class="cls-1" d="M110.55,12.22v-2.31h7.64v2.31h-2.58v13.63h-2.48v-13.63h-2.57Z" />
-                        </g>
-                        <polygon class="cls-1"
-                            points="137.02 35.68 109.56 35.68 109.56 33.5 134.82 33.5 134.82 2.18 2.2 2.18 2.2 33.5 27.45 33.5 27.45 35.68 0 35.68 0 0 137.02 0 137.02 35.68" />
-                        <path class="cls-1"
-                            d="M39.27,32.42c.41.31.62.77.62,1.38s-.2,1.12-.61,1.45c-.41.32-.96.49-1.64.49h-.66v1.96h-1.22v-5.74h1.77c.75,0,1.32.15,1.74.46ZM38.35,34.6c.19-.16.28-.43.28-.8,0-.65-.37-.97-1.11-.97h-.54v2.01h.56c.35,0,.62-.08.81-.24Z" />
-                        <path class="cls-1"
-                            d="M43.68,36.85c.05.08.13.14.25.18l-.25.78c-.26-.02-.47-.08-.63-.18-.16-.1-.29-.25-.38-.46-.29.44-.73.66-1.32.66-.44,0-.78-.13-1.04-.38-.26-.25-.39-.58-.39-.98,0-.48.17-.85.52-1.1.35-.25.85-.38,1.5-.38h.51v-.22c0-.27-.06-.46-.18-.56-.12-.1-.32-.16-.61-.16-.31,0-.7.08-1.16.23l-.27-.79c.55-.22,1.09-.32,1.62-.32.6,0,1.04.13,1.32.38.28.26.42.64.42,1.15v1.77c0,.17.03.3.07.38ZM42.46,36.49v-.84h-.39c-.63,0-.95.24-.95.71,0,.19.05.34.15.45.1.11.24.16.42.16.33,0,.59-.16.78-.49Z" />
-                        <path class="cls-1"
-                            d="M48.17,33.52c.22.23.32.56.32.97v3.2h-1.18v-3c0-.24-.04-.4-.12-.5-.08-.1-.2-.15-.36-.15s-.32.05-.45.15c-.14.1-.27.26-.39.46v3.03h-1.18v-4.39h1.02l.09.56c.18-.23.38-.4.6-.51.22-.12.47-.17.74-.17.39,0,.69.12.9.35Z" />
-                        <path class="cls-1"
-                            d="M53.32,35.86h-2.74c.04.4.15.68.32.84.18.17.42.25.72.25.19,0,.37-.03.53-.09.17-.06.35-.16.54-.29l.49.66c-.49.4-1.05.6-1.67.6-.69,0-1.22-.21-1.59-.62-.37-.41-.56-.98-.56-1.68,0-.45.08-.85.24-1.21s.39-.64.69-.84c.3-.2.66-.31,1.07-.31.62,0,1.11.2,1.46.59.35.39.52.94.52,1.64,0,.06,0,.21-.03.46ZM52.18,35.07c0-.73-.26-1.09-.79-1.09-.24,0-.43.09-.57.27s-.22.47-.24.87h1.6v-.05Z" />
-                        <path class="cls-1"
-                            d="M54.49,37.52c-.2-.21-.3-.5-.3-.88v-5.08l1.18-.13v5.18c0,.19.08.29.24.29.09,0,.17-.02.23-.05l.24.84c-.23.1-.48.15-.75.15-.36,0-.64-.1-.84-.31Z" />
-                        <path class="cls-1"
-                            d="M60.35,35.86h-2.74c.04.4.15.68.32.84.18.17.42.25.72.25.19,0,.37-.03.53-.09.17-.06.35-.16.54-.29l.49.66c-.49.4-1.05.6-1.67.6-.69,0-1.22-.21-1.59-.62-.37-.41-.56-.98-.56-1.68,0-.45.08-.85.24-1.21s.39-.64.69-.84c.3-.2.66-.31,1.07-.31.62,0,1.11.2,1.46.59.35.39.52.94.52,1.64,0,.06,0,.21-.03.46ZM59.21,35.07c0-.73-.26-1.09-.79-1.09-.24,0-.43.09-.57.27s-.22.47-.24.87h1.6v-.05Z" />
-                        <path class="cls-1"
-                            d="M64.31,33.7l-.45.67c-.37-.23-.73-.35-1.09-.35-.19,0-.34.04-.45.11s-.16.17-.16.29c0,.09.02.16.07.22.05.06.14.12.27.17.13.06.32.12.58.2.46.13.81.3,1.04.51.23.21.34.5.34.87,0,.29-.08.55-.25.76-.17.22-.4.38-.68.49-.29.11-.61.17-.96.17s-.71-.06-1.01-.17-.56-.27-.78-.47l.58-.65c.37.29.76.43,1.18.43.22,0,.4-.04.53-.13.13-.09.19-.2.19-.35,0-.12-.03-.21-.07-.27-.05-.07-.14-.13-.27-.19-.13-.06-.34-.13-.62-.2-.44-.12-.77-.29-.98-.52-.21-.22-.32-.5-.32-.83,0-.25.07-.47.21-.67.14-.2.35-.36.61-.47s.57-.17.92-.17c.62,0,1.15.18,1.59.53Z" />
-                        <path class="cls-1"
-                            d="M70.36,37.7l-.32-1.28h-1.8l-.32,1.28h-1.27l1.77-5.74h1.48l1.76,5.74h-1.29ZM68.47,35.51h1.33l-.67-2.64-.66,2.64Z" />
-                        <path class="cls-1"
-                            d="M73.28,31.23c.14.13.2.29.2.49s-.07.36-.2.49c-.14.13-.31.19-.52.19s-.38-.06-.51-.19c-.13-.13-.2-.29-.2-.49s.07-.36.2-.49c.13-.13.3-.19.51-.19s.38.06.52.19ZM73.36,33.3v4.39h-1.18v-4.39h1.18Z" />
-                        <path class="cls-1"
-                            d="M77.59,33.7l-.45.67c-.37-.23-.73-.35-1.09-.35-.19,0-.34.04-.45.11s-.16.17-.16.29c0,.09.02.16.07.22.05.06.14.12.27.17.13.06.32.12.58.2.46.13.81.3,1.04.51.23.21.34.5.34.87,0,.29-.08.55-.25.76-.17.22-.4.38-.68.49-.29.11-.61.17-.96.17s-.71-.06-1.01-.17c-.3-.11-.56-.27-.78-.47l.58-.65c.37.29.76.43,1.18.43.22,0,.4-.04.53-.13.13-.09.19-.2.19-.35,0-.12-.03-.21-.07-.27-.05-.07-.14-.13-.27-.19-.13-.06-.34-.13-.62-.2-.44-.12-.77-.29-.98-.52-.21-.22-.32-.5-.32-.83,0-.25.07-.47.22-.67.14-.2.35-.36.61-.47.26-.11.57-.17.92-.17.62,0,1.15.18,1.59.53Z" />
-                        <path class="cls-1"
-                            d="M78.79,37.52c-.2-.21-.3-.5-.3-.88v-5.08l1.18-.13v5.18c0,.19.08.29.24.29.09,0,.17-.02.23-.05l.24.84c-.23.1-.48.15-.75.15-.36,0-.64-.1-.84-.31Z" />
-                        <path class="cls-1"
-                            d="M84.41,36.85c.05.08.13.14.25.18l-.25.78c-.26-.02-.47-.08-.63-.18-.16-.1-.29-.25-.38-.46-.29.44-.73.66-1.32.66-.44,0-.78-.13-1.04-.38-.26-.25-.39-.58-.39-.98,0-.48.17-.85.52-1.1.35-.25.85-.38,1.5-.38h.51v-.22c0-.27-.06-.46-.18-.56-.12-.1-.32-.16-.61-.16-.31,0-.7.08-1.16.23l-.27-.79c.55-.22,1.09-.32,1.62-.32.6,0,1.04.13,1.32.38.28.26.42.64.42,1.15v1.77c0,.17.03.3.07.38ZM83.18,36.49v-.84h-.39c-.64,0-.95.24-.95.71,0,.19.05.34.15.45.1.11.24.16.42.16.33,0,.59-.16.78-.49Z" />
-                        <path class="cls-1"
-                            d="M88.89,33.52c.21.23.32.56.32.97v3.2h-1.18v-3c0-.24-.04-.4-.12-.5-.08-.1-.2-.15-.36-.15s-.32.05-.45.15-.27.26-.39.46v3.03h-1.18v-4.39h1.02l.09.56c.18-.23.38-.4.6-.51.22-.12.47-.17.74-.17.39,0,.69.12.9.35Z" />
-                        <path class="cls-1"
-                            d="M92.99,37.49c-.16.11-.34.19-.54.25-.2.06-.4.09-.6.09-.45,0-.8-.14-1.03-.39-.23-.25-.35-.63-.35-1.12v-2.19h-.66v-.83h.66v-.96l1.18-.14v1.1h1.01l-.12.83h-.9v2.16c0,.21.04.36.11.46.07.09.18.14.33.14s.31-.05.5-.15l.41.75Z" />
-                        <path class="cls-1"
-                            d="M97.08,35.86h-2.74c.04.4.15.68.32.84s.42.25.72.25c.19,0,.37-.03.53-.09s.35-.16.54-.29l.49.66c-.49.4-1.05.6-1.67.6-.69,0-1.22-.21-1.59-.62-.37-.41-.56-.98-.56-1.68,0-.45.08-.85.24-1.21s.39-.64.69-.84c.3-.2.66-.31,1.07-.31.62,0,1.11.2,1.46.59.35.39.52.94.52,1.64,0,.06,0,.21-.03.46ZM95.94,35.07c0-.73-.26-1.09-.79-1.09-.24,0-.43.09-.57.27-.14.18-.22.47-.24.87h1.6v-.05Z" />
-                        <path class="cls-1"
-                            d="M101.03,33.7l-.45.67c-.37-.23-.73-.35-1.09-.35-.19,0-.34.04-.45.11s-.16.17-.16.29c0,.09.02.16.07.22.05.06.14.12.26.17.13.06.33.12.58.2.46.13.81.3,1.04.51.23.21.34.5.34.87,0,.29-.08.55-.25.76-.17.22-.4.38-.68.49-.29.11-.61.17-.96.17s-.71-.06-1.01-.17-.56-.27-.78-.47l.58-.65c.37.29.76.43,1.18.43.22,0,.4-.04.53-.13.13-.09.19-.2.19-.35,0-.12-.02-.21-.07-.27-.05-.07-.14-.13-.27-.19-.13-.06-.34-.13-.62-.2-.44-.12-.77-.29-.98-.52-.21-.22-.32-.5-.32-.83,0-.25.07-.47.21-.67.14-.2.35-.36.61-.47s.57-.17.92-.17c.62,0,1.15.18,1.59.53Z" />
-                    </svg>
-                </div>
-                <p class="mb-6 leading-relaxed">Soluciones integrales de alta calidad para la industria frigorífica y
+                <p class="mb-6 leading-relaxed">Sol uciones integrales de alta calidad para la industria frigorífica y
                     construcción civil.</p>
                 <div class="flex gap-3">
                     <a href="#"
@@ -543,14 +620,136 @@
     </footer>
 
     <script>
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
+        // Toggle category expansion
+        function toggleCategory(categoryId) {
+            const list = document.getElementById(categoryId + '-list');
+            const icon = document.getElementById(categoryId + '-icon');
+            const category = event.currentTarget;
 
-        if (btn && menu) {
-            btn.addEventListener('click', () => {
-                menu.classList.toggle('hidden');
+            // Toggle visibility
+            list.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+
+            // Toggle active state
+            document.querySelectorAll('.category').forEach(cat => {
+                if (cat !== category) {
+                    cat.classList.remove('active');
+                    cat.classList.add('bg-gray-100', 'text-gray-800');
+                    cat.classList.remove('bg-gray-800', 'text-white');
+                }
+            });
+
+            if (!list.classList.contains('hidden')) {
+                category.classList.add('active', 'bg-gray-800', 'text-white');
+                category.classList.remove('bg-gray-100', 'text-gray-800');
+            } else {
+                category.classList.remove('active', 'bg-gray-800', 'text-white');
+                category.classList.add('bg-gray-100', 'text-gray-800');
+            }
+        }
+
+        // Select product
+        function selectProduct(productType) {
+            // Update active subcategory
+            document.querySelectorAll('.subcategory').forEach(sub => {
+                sub.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+
+            // Update product info based on selection
+            const productNames = {
+                'sinusoidal': 'Foilroof: núcleo PUR - Sinusoidal',
+                'trapezoidal': 'Foilroof: núcleo PUR - Trapezoidal',
+                'teja': 'Foilroof: núcleo PUR - Teja',
+                'micronervado': 'Panel de Pared Micronervado'
+            };
+
+            document.getElementById('product-name').textContent = productNames[productType] || 'Producto';
+        }
+
+        // Select color
+        function selectColor(element) {
+            document.querySelectorAll('.color-swatch').forEach(swatch => {
+                swatch.classList.remove('active');
+            });
+            element.classList.add('active');
+
+            // Update color text
+            const colorNames = {
+                'gray': 'gris',
+                'black': 'negro',
+                'white-outline': 'blanco',
+                'white': 'blanco',
+                'light-gray': 'gris claro',
+                'brown': 'marrón'
+            };
+
+            const colorText = colorNames[element.dataset.color] || 'personalizado';
+            document.getElementById('product-color').textContent = 'foil ' + colorText;
+        }
+
+        // Select gallery image
+        function selectGalleryImage(element, imageNum) {
+            document.querySelectorAll('.gallery-thumb').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            element.classList.add('active');
+
+            // Here you would load the actual image
+            console.log('Loading image:', imageNum);
+        }
+
+        // Open modal
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.classList.add('active');
+            modalImg.src = imageSrc;
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('imageModal').classList.remove('active');
+        }
+
+        // Mobile menu - changed IDs to avoid conflict
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+        // Navigation mobile menu toggle (header menu)
+        const navMobileBtn = document.getElementById('nav-mobile-menu-btn');
+        const navMobileMenu = document.getElementById('nav-mobile-menu');
+
+        if (navMobileBtn && navMobileMenu) {
+            navMobileBtn.addEventListener('click', () => {
+                navMobileMenu.classList.toggle('hidden');
             });
         }
+
+        // Sidebar product categories toggle (mobile button)
+        if (mobileMenuBtn && sidebar && sidebarOverlay) {
+            mobileMenuBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+                sidebarOverlay.classList.toggle('hidden');
+            });
+        }
+
+        function closeMobileSidebar() {
+            if (sidebar && sidebarOverlay) {
+                sidebar.classList.remove('active');
+                sidebarOverlay.classList.add('hidden');
+            }
+        }
+
+        // Close mobile menu when clicking a subcategory
+        document.querySelectorAll('.subcategory').forEach(item => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth < 1024) {
+                    closeMobileSidebar();
+                }
+            });
+        });
     </script>
 </body>
 
