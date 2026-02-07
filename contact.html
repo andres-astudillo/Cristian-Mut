@@ -69,18 +69,25 @@
         }
     </script>
     <style>
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+
         body {
             background-color: #ffffff;
         }
     </style>
 </head>
 
-<body class="text-gray-600 antialiased min-h-screen flex flex-col">
+<body class="text-gray-600 antialiased min-h-screen flex flex-col w-full">
 
     <!-- HEADER -->
     <!-- HEADER -->
     <header
-        class="bg-brand-blue/95 backdrop-blur-md border-b border-white/10 sticky top-0 z-50 shadow-lg transition-all duration-300">
+        class="bg-brand-blue/95 backdrop-blur-md border-b border-white/10 sticky top-0 z-50 shadow-lg transition-all duration-300 w-full">
         <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
             <!-- Logo -->
             <a href="index.html" class="flex items-center gap-2">
@@ -330,7 +337,7 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-brand-dark text-blue-200 py-16 border-t-8 border-brand-red">
+    <footer class="bg-brand-dark text-blue-200 py-16 border-t-8 border-brand-red w-full">
         <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 text-sm">
             <div class="col-span-1 md:col-span-1">
                 <div class="h-10 text-brand-dark">
