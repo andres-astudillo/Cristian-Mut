@@ -242,55 +242,95 @@
                         </svg>
                     </div>
                     <div id="techos-list" class="mt-2 space-y-1">
-                        <div class="subcategory active" onclick="selectProduct('sinusoidal')">
-                            <svg class="pattern-icon" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0,20 Q12.5,0 25,20 T50,20 T75,20 T100,20" stroke="currentColor"
-                                    stroke-width="2" fill="none" />
-                            </svg>
-                            <span>Sinusoidal</span>
+                        <div class="subcategory active" onclick="selectProduct('foilroof-sinusoidal')">
+                            <img src="assets/SINUSOIDAL.svg" alt="Sinusoidal" class="pattern-icon" />
+                            <span>FOILROOF Sinusoidal</span>
                         </div>
-                        <div class="subcategory" onclick="selectProduct('trapezoidal')">
-                            <svg class="pattern-icon" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0,20 L10,5 L20,5 L30,20 L40,20 L50,5 L60,5 L70,20 L80,20 L90,5 L100,5"
-                                    stroke="currentColor" stroke-width="2" fill="none" />
-                            </svg>
-                            <span>Trapezoidal</span>
+                        <div class="subcategory" onclick="selectProduct('foilroof-trapezoidal')">
+                            <img src="assets/TRAPEZOIDAL.svg" alt="Trapezoidal" class="pattern-icon" />
+                            <span>FOILROOF Trapezoidal</span>
                         </div>
-                        <div class="subcategory" onclick="selectProduct('teja')">
-                            <svg class="pattern-icon" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0,20 Q8,0 16,20 Q24,0 32,20 Q40,0 48,20 Q56,0 64,20 Q72,0 80,20 Q88,0 96,20"
-                                    stroke="currentColor" stroke-width="2" fill="none" />
-                            </svg>
-                            <span>Teja</span>
+                        <div class="subcategory" onclick="selectProduct('tejatech')">
+                            <img src="assets/TEJA.svg" alt="Teja" class="pattern-icon" />
+                            <span>TEJATECH</span>
+                        </div>
+                        <div class="subcategory" onclick="selectProduct('maxiroof')">
+                            <img src="assets/TRAPEZOIDAL.svg" alt="Trapezoidal" class="pattern-icon" />
+                            <span>MAXIROOF</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Paredes Category -->
+                <!-- Muros Category -->
                 <div class="mb-4">
                     <div class="category bg-gray-100 text-gray-800 rounded-lg p-4 flex justify-between items-center"
-                        onclick="toggleCategory('paredes')">
-                        <span class="font-semibold">Paredes</span>
-                        <svg id="paredes-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        onclick="toggleCategory('muros')">
+                        <span class="font-semibold">Muros</span>
+                        <svg id="muros-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
                             </path>
                         </svg>
                     </div>
-                    <div id="paredes-list" class="mt-2 space-y-1 hidden">
-                        <div class="subcategory" onclick="selectProduct('micronervado')">
-                            <svg class="pattern-icon" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
-                                <line x1="10" y1="0" x2="10" y2="40" stroke="currentColor" stroke-width="1" />
-                                <line x1="20" y1="0" x2="20" y2="40" stroke="currentColor" stroke-width="1" />
-                                <line x1="30" y1="0" x2="30" y2="40" stroke="currentColor" stroke-width="1" />
-                                <line x1="40" y1="0" x2="40" y2="40" stroke="currentColor" stroke-width="1" />
-                                <line x1="50" y1="0" x2="50" y2="40" stroke="currentColor" stroke-width="1" />
-                                <line x1="60" y1="0" x2="60" y2="40" stroke="currentColor" stroke-width="1" />
-                                <line x1="70" y1="0" x2="70" y2="40" stroke="currentColor" stroke-width="1" />
-                                <line x1="80" y1="0" x2="80" y2="40" stroke="currentColor" stroke-width="1" />
-                                <line x1="90" y1="0" x2="90" y2="40" stroke="currentColor" stroke-width="1" />
-                            </svg>
-                            <span>Micronervado</span>
+                    <div id="muros-list" class="mt-2 space-y-1 hidden">
+                        <div class="subcategory" onclick="selectProduct('claswall')">
+                            <img src="assets/MICRONERVADO.svg" alt="Micronervado" class="pattern-icon" />
+                            <span>CLASWALL</span>
                         </div>
+                        <div class="subcategory" onclick="selectProduct('megacold')">
+                            <svg class="pattern-icon" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="5" y="5" width="90" height="30" stroke="currentColor" stroke-width="2"
+                                    fill="none" rx="2" />
+                                <line x1="5" y1="20" x2="95" y2="20" stroke="currentColor" stroke-width="1" />
+                            </svg>
+                            <span>MEGACOLD</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cámaras Frigoríficas Category -->
+                <div class="mb-4">
+                    <div class="category bg-gray-100 text-gray-800 rounded-lg p-4 flex justify-between items-center"
+                        onclick="toggleCategory('camaras')">
+                        <span class="font-semibold">Cámaras Frigoríficas</span>
+                        <svg id="camaras-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </div>
+                    <div id="camaras-list" class="mt-2 space-y-1 hidden">
+                        <div class="subcategory" onclick="selectProduct('media-temperatura')">
+                            <svg class="pattern-icon" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="5" width="80" height="30" stroke="currentColor" stroke-width="2"
+                                    fill="none" rx="3" />
+                                <line x1="50" y1="12" x2="50" y2="28" stroke="currentColor" stroke-width="2" />
+                                <line x1="42" y1="20" x2="58" y2="20" stroke="currentColor" stroke-width="2" />
+                            </svg>
+                            <span>Media Temperatura</span>
+                        </div>
+                        <div class="subcategory" onclick="selectProduct('baja-temperatura')">
+                            <svg class="pattern-icon" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="5" width="80" height="30" stroke="currentColor" stroke-width="2"
+                                    fill="none" rx="3" />
+                                <line x1="42" y1="20" x2="58" y2="20" stroke="currentColor" stroke-width="2" />
+                            </svg>
+                            <span>Baja Temperatura</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accesorios Category -->
+                <div class="mb-4">
+                    <div class="category bg-gray-100 text-gray-800 rounded-lg p-4 cursor-pointer"
+                        onclick="selectProduct('accesorios')">
+                        <span class="font-semibold">Accesorios</span>
+                    </div>
+                </div>
+
+                <!-- Perfilería Category -->
+                <div class="mb-4">
+                    <div class="category bg-gray-100 text-gray-800 rounded-lg p-4 cursor-pointer"
+                        onclick="selectProduct('perfileria')">
+                        <span class="font-semibold">Perfilería</span>
                     </div>
                 </div>
 
@@ -332,22 +372,11 @@
                 <!-- Product Viewer Container -->
                 <div class="bg-white rounded-2xl shadow-xl p-8 lg:p-12">
                     <!-- Color Selector -->
-                    <div class="mb-8">
+                    <div class="mb-8" id="color-selector-section">
                         <div class="flex items-center gap-4 mb-4">
                             <span class="text-sm font-semibold text-gray-700">Color</span>
-                            <div class="flex flex-wrap gap-3">
-                                <div class="color-swatch bg-gray-400 active" data-color="gray"
-                                    onclick="selectColor(this)"></div>
-                                <div class="color-swatch bg-black" data-color="black" onclick="selectColor(this)">
-                                </div>
-                                <div class="color-swatch bg-white border border-gray-300" data-color="white-outline"
-                                    onclick="selectColor(this)"></div>
-                                <div class="color-swatch bg-gray-50 border border-gray-300" data-color="white"
-                                    onclick="selectColor(this)"></div>
-                                <div class="color-swatch bg-gray-300" data-color="light-gray"
-                                    onclick="selectColor(this)"></div>
-                                <div class="color-swatch" style="background-color: #8B4513;" data-color="brown"
-                                    onclick="selectColor(this)"></div>
+                            <div class="flex flex-wrap gap-3" id="color-swatches">
+                                <!-- Colors are dynamically generated -->
                             </div>
                         </div>
                     </div>
@@ -406,24 +435,29 @@
                     <!-- Product Info -->
                     <div class="mt-10 border-t border-gray-200 pt-8">
                         <div class="flex flex-col md:flex-row items-start justify-between gap-6">
-                            <div>
-                                <h1 class="text-3xl font-heading text-gray-900 mb-3" id="product-name">Foilroof: núcleo
-                                    PUR</h1>
-                                <p class="text-gray-600 mb-4" id="product-desc">Panel aislante de alta eficiencia
-                                    térmica</p>
-                                <div class="flex items-center gap-6 text-sm text-gray-700">
-                                    <div>
-                                        <span class="font-semibold">Ext:</span>
-                                        <span id="product-color">foil blanco</span>
-                                    </div>
-                                    <div>
-                                        <span class="font-semibold">Espesor:</span>
-                                        <span>10mm / 30mm / 50mm</span>
+                            <div class="flex-1">
+                                <h1 class="text-3xl font-heading text-gray-900 mb-2" id="product-name">FOILROOF - Panel
+                                    Sinusoidal</h1>
+                                <p class="text-sm text-brand-blue font-semibold mb-3" id="product-type">Panel Sinusoidal
+                                </p>
+                                <p class="text-gray-600 mb-4" id="product-detail">ACERO + AISLANTE + FOIL</p>
+
+                                <!-- Characteristics -->
+                                <div class="mb-4" id="product-chars-section">
+                                    <h3 class="text-sm font-semibold text-gray-800 mb-2">Características</h3>
+                                    <ul class="text-sm text-gray-600 space-y-1" id="product-chars">
+                                    </ul>
+                                </div>
+
+                                <!-- Benefits -->
+                                <div class="mb-4" id="product-benefits-section">
+                                    <h3 class="text-sm font-semibold text-gray-800 mb-2">Beneficios</h3>
+                                    <div class="flex flex-wrap gap-2" id="product-benefits">
                                     </div>
                                 </div>
                             </div>
                             <a href="contact.html"
-                                class="bg-[#25D366] hover:bg-[#1da851] text-white px-8 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2">
+                                class="bg-[#25D366] hover:bg-[#1da851] text-white px-8 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2 shrink-0">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                     <path
                                         d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
@@ -448,86 +482,286 @@
     <script src="js/components.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Toggle category expansion
+
+            // ===== PRODUCT DATA =====
+            const productData = {
+                'foilroof-sinusoidal': {
+                    name: 'FOILROOF - Panel Sinusoidal',
+                    type: 'Panel Sinusoidal',
+                    detail: 'ACERO + AISLANTE + FOIL',
+                    characteristics: [
+                        'Cara interna: Foil de polipropileno blanco',
+                        'Cara externa: Acero según modelo a elección',
+                        'Núcleo: PIR (Poliisocianurato de alta densidad)',
+                        'Medidas: Largo mínimo 2,5 m — Largo máximo 14 m',
+                        'Espesor de aislación: 10 mm, 30 mm, 50 mm y 80 mm'
+                    ],
+                    colors: [
+                        { name: 'Galvanizado', hex: '#B0B0B0' },
+                        { name: 'Cincalum', hex: '#C0C0C0' },
+                        { name: 'Blanco', hex: '#FFFFFF', border: true },
+                        { name: 'Marrón Cobre', hex: '#8B4513' },
+                        { name: 'Gris Pizarra', hex: '#708090' },
+                        { name: 'Negro', hex: '#1a1a1a' }
+                    ],
+                    benefits: ['Construcción rápida', 'Aislación térmica', 'Ahorro energético', 'Durabilidad']
+                },
+                'foilroof-trapezoidal': {
+                    name: 'FOILROOF - Panel Trapezoidal',
+                    type: 'Panel Trapezoidal',
+                    detail: 'ACERO + AISLANTE + FOIL',
+                    characteristics: [
+                        'Cara interna: Foil de polipropileno blanco',
+                        'Cara externa: Acero según modelo a elección',
+                        'Núcleo: PIR (Poliisocianurato de alta densidad)',
+                        'Medidas: Largo mínimo 2,5 m — Largo máximo 14 m',
+                        'Espesor de aislación: 10 mm, 30 mm, 50 mm y 80 mm'
+                    ],
+                    colors: [
+                        { name: 'Galvanizado', hex: '#B0B0B0' },
+                        { name: 'Cincalum', hex: '#C0C0C0' },
+                        { name: 'Blanco', hex: '#FFFFFF', border: true },
+                        { name: 'Marrón Cobre', hex: '#8B4513' },
+                        { name: 'Gris Pizarra', hex: '#708090' },
+                        { name: 'Negro', hex: '#1a1a1a' }
+                    ],
+                    benefits: ['Construcción rápida', 'Aislación térmica', 'Ahorro energético', 'Durabilidad']
+                },
+                'tejatech': {
+                    name: 'TEJATECH - Panel Tipo Teja',
+                    type: 'Panel Tipo Teja',
+                    detail: 'TEJA + AISLANTE + FOIL',
+                    characteristics: [
+                        'Cara interna: Foil de polipropileno blanco',
+                        'Cara externa: Acero tipo "Teja Francesa"',
+                        'Núcleo: PIR (Poliisocianurato de alta densidad)',
+                        'Largo: Largo mínimo 2,7 m — Largo máximo 10,2 m',
+                        'Espesor de aislación: 50 mm'
+                    ],
+                    colors: [
+                        { name: 'Negro', hex: '#1a1a1a' },
+                        { name: 'Marrón Cobre', hex: '#8B4513' }
+                    ],
+                    benefits: ['Mayor Aislación', 'Diseño moderno', 'Teja Resistente', 'Durabilidad']
+                },
+                'maxiroof': {
+                    name: 'MAXIROOF - Panel Trapezoidal',
+                    type: 'Panel Trapezoidal',
+                    detail: 'ACERO + AISLANTE + ACERO',
+                    characteristics: [
+                        'Cara interna: Acero prepintado blanco tableteado',
+                        'Cara externa: Acero según modelo a elección',
+                        'Núcleo: PIR (Poliisocianurato de alta densidad)',
+                        'Medidas: Largo mínimo 2,5 m — Largo máximo 14 m',
+                        'Espesor de aislación: 30 mm, 50 mm y 80 mm'
+                    ],
+                    colors: [
+                        { name: 'Galvanizado', hex: '#B0B0B0' },
+                        { name: 'Cincalum', hex: '#C0C0C0' },
+                        { name: 'Blanco', hex: '#FFFFFF', border: true },
+                        { name: 'Marrón', hex: '#8B4513' },
+                        { name: 'Gris Pizarra', hex: '#708090' },
+                        { name: 'Negro', hex: '#1a1a1a' }
+                    ],
+                    benefits: []
+                },
+                'claswall': {
+                    name: 'CLASWALL - Panel Micronervado',
+                    type: 'Panel Micronervado',
+                    detail: 'ACERO + AISLANTE + ACERO',
+                    characteristics: [
+                        'Cara interna: Acero prepintado blanco tableteado',
+                        'Cara externa: Acero color a elección - micronervado',
+                        'Núcleo: PIR (Poliisocianurato de alta densidad)',
+                        'Medidas: Largo mínimo 2,3 m — Largo máximo 6 m'
+                    ],
+                    colors: [
+                        { name: 'Silver', hex: '#C0C0C0' },
+                        { name: 'Negro', hex: '#1a1a1a' },
+                        { name: 'Gris Pizarra', hex: '#708090' },
+                        { name: 'Blanco', hex: '#FFFFFF', border: true },
+                        { name: 'Cincalum', hex: '#B8B8B8' }
+                    ],
+                    benefits: []
+                },
+                'megacold': {
+                    name: 'MEGACOLD',
+                    type: 'Panel para Cámaras',
+                    detail: 'ACERO + AISLANTE + ACERO',
+                    characteristics: [
+                        'Cara INT / EXT: Acero Galvanizado prepintado blanco o Cincalum',
+                        'Colores: Acero Galvanizado prepintado blanco',
+                        'Núcleo: PIR (Poliisocianurato de alta densidad)',
+                        'Acabado de chapa: Tableteado',
+                        'Espesor de aislación: 30 mm, 50 mm, 60 mm, 100 mm, 150 mm'
+                    ],
+                    colors: [
+                        { name: 'Silver', hex: '#C0C0C0' },
+                        { name: 'Gris Pizarra', hex: '#708090' },
+                        { name: 'Blanco', hex: '#FFFFFF', border: true },
+                        { name: 'Cincalum', hex: '#B8B8B8' }
+                    ],
+                    benefits: []
+                },
+                'media-temperatura': {
+                    name: 'Equipos de Refrigeración - Media Temperatura',
+                    type: 'Media Temperatura',
+                    detail: 'Equipos de refrigeración para cámaras frigoríficas',
+                    characteristics: [
+                        'Equipos diseñados para conservación de productos frescos',
+                        'Rango de temperatura de trabajo según requerimiento'
+                    ],
+                    colors: [],
+                    benefits: []
+                },
+                'baja-temperatura': {
+                    name: 'Equipos de Refrigeración - Baja Temperatura',
+                    type: 'Baja Temperatura',
+                    detail: 'Equipos de refrigeración para cámaras frigoríficas',
+                    characteristics: [
+                        'Equipos diseñados para congelación de productos',
+                        'Rango de temperatura de trabajo según requerimiento'
+                    ],
+                    colors: [],
+                    benefits: []
+                },
+                'accesorios': {
+                    name: 'Accesorios',
+                    type: 'Accesorios',
+                    detail: 'Accesorios complementarios para paneles y cámaras',
+                    characteristics: [
+                        'Accesorios de instalación y terminación para paneles aislantes',
+                        'Consulte por disponibilidad y modelos'
+                    ],
+                    colors: [],
+                    benefits: []
+                },
+                'perfileria': {
+                    name: 'Perfilería',
+                    type: 'Perfilería',
+                    detail: 'Perfiles de soporte y fijación',
+                    characteristics: [
+                        'Perfilería complementaria para instalación de paneles',
+                        'Consulte por disponibilidad y modelos'
+                    ],
+                    colors: [],
+                    benefits: []
+                }
+            };
+
+            // ===== RENDER PRODUCT =====
+            function renderProduct(productId) {
+                const data = productData[productId];
+                if (!data) return;
+
+                // Name and type
+                document.getElementById('product-name').textContent = data.name;
+                document.getElementById('product-type').textContent = data.type;
+                document.getElementById('product-detail').textContent = data.detail;
+
+                // Characteristics
+                const charsEl = document.getElementById('product-chars');
+                const charsSectionEl = document.getElementById('product-chars-section');
+                if (data.characteristics.length > 0) {
+                    charsSectionEl.classList.remove('hidden');
+                    charsEl.innerHTML = data.characteristics.map(c => `<li class="flex items-start gap-2"><span class="text-brand-blue mt-1">•</span>${c}</li>`).join('');
+                } else {
+                    charsSectionEl.classList.add('hidden');
+                }
+
+                // Benefits
+                const benefitsEl = document.getElementById('product-benefits');
+                const benefitsSectionEl = document.getElementById('product-benefits-section');
+                if (data.benefits.length > 0) {
+                    benefitsSectionEl.classList.remove('hidden');
+                    benefitsEl.innerHTML = data.benefits.map(b => `<span class="bg-brand-light text-brand-blue text-xs font-semibold px-3 py-1 rounded-full">${b}</span>`).join('');
+                } else {
+                    benefitsSectionEl.classList.add('hidden');
+                }
+
+                // Colors
+                const swatchesEl = document.getElementById('color-swatches');
+                const colorSection = document.getElementById('color-selector-section');
+                if (data.colors.length > 0) {
+                    colorSection.classList.remove('hidden');
+                    swatchesEl.innerHTML = data.colors.map((c, i) => {
+                        const borderClass = c.border ? 'border border-gray-300' : '';
+                        const activeClass = i === 0 ? 'active' : '';
+                        return `<div class="color-swatch ${activeClass} ${borderClass}" style="background-color:${c.hex}" data-color="${c.name}" onclick="selectColor(this)" title="${c.name}"></div>`;
+                    }).join('');
+                } else {
+                    colorSection.classList.add('hidden');
+                }
+            }
+
+            // ===== TOGGLE CATEGORY (Accordion) =====
+            const allCategoryIds = ['techos', 'muros', 'camaras'];
+
             window.toggleCategory = function (categoryId) {
                 const list = document.getElementById(categoryId + '-list');
                 const icon = document.getElementById(categoryId + '-icon');
                 const category = event.currentTarget;
+                const isCurrentlyOpen = !list.classList.contains('hidden');
 
-                // Toggle visibility
-                list.classList.toggle('hidden');
-                icon.classList.toggle('rotate-180');
-
-                // Toggle active state
-                document.querySelectorAll('.category').forEach(cat => {
-                    if (cat !== category) {
-                        cat.classList.remove('active');
-                        cat.classList.add('bg-gray-100', 'text-gray-800');
-                        cat.classList.remove('bg-gray-800', 'text-white');
+                // Collapse ALL categories first
+                allCategoryIds.forEach(id => {
+                    const otherList = document.getElementById(id + '-list');
+                    const otherIcon = document.getElementById(id + '-icon');
+                    if (otherList) {
+                        otherList.classList.add('hidden');
+                    }
+                    if (otherIcon) {
+                        otherIcon.classList.remove('rotate-180');
                     }
                 });
 
-                if (!list.classList.contains('hidden')) {
+                // Reset all category styles
+                document.querySelectorAll('.category').forEach(cat => {
+                    cat.classList.remove('active', 'bg-gray-800', 'text-white');
+                    cat.classList.add('bg-gray-100', 'text-gray-800');
+                });
+
+                // If was closed, open it now
+                if (!isCurrentlyOpen) {
+                    list.classList.remove('hidden');
+                    icon.classList.add('rotate-180');
                     category.classList.add('active', 'bg-gray-800', 'text-white');
                     category.classList.remove('bg-gray-100', 'text-gray-800');
-                } else {
-                    category.classList.remove('active', 'bg-gray-800', 'text-white');
-                    category.classList.add('bg-gray-100', 'text-gray-800');
                 }
             };
 
-            // Select product
+            // ===== SELECT PRODUCT =====
             window.selectProduct = function (productType) {
                 // Update active subcategory
                 document.querySelectorAll('.subcategory').forEach(sub => {
                     sub.classList.remove('active');
                 });
-                event.currentTarget.classList.add('active');
+                if (event && event.currentTarget && event.currentTarget.classList) {
+                    event.currentTarget.classList.add('active');
+                }
 
-                // Update product info based on selection
-                const productNames = {
-                    'sinusoidal': 'Foilroof: núcleo PUR - Sinusoidal',
-                    'trapezoidal': 'Foilroof: núcleo PUR - Trapezoidal',
-                    'teja': 'Foilroof: núcleo PUR - Teja',
-                    'micronervado': 'Panel de Pared Micronervado'
-                };
-
-                document.getElementById('product-name').textContent = productNames[productType] || 'Producto';
+                // Render the product
+                renderProduct(productType);
             };
 
-            // Select color
+            // ===== SELECT COLOR =====
             window.selectColor = function (element) {
                 document.querySelectorAll('.color-swatch').forEach(swatch => {
                     swatch.classList.remove('active');
                 });
                 element.classList.add('active');
-
-                // Update color text
-                const colorNames = {
-                    'gray': 'gris',
-                    'black': 'negro',
-                    'white-outline': 'blanco',
-                    'white': 'blanco',
-                    'light-gray': 'gris claro',
-                    'brown': 'marrón'
-                };
-
-                const colorText = colorNames[element.dataset.color] || 'personalizado';
-                document.getElementById('product-color').textContent = 'foil ' + colorText;
             };
 
-            // Select gallery image
+            // ===== SELECT GALLERY IMAGE =====
             window.selectGalleryImage = function (element, imageNum) {
                 document.querySelectorAll('.gallery-thumb').forEach(thumb => {
                     thumb.classList.remove('active');
                 });
                 element.classList.add('active');
-
-                // Here you would load the actual image
                 console.log('Loading image:', imageNum);
             };
 
-            // Open modal
+            // ===== MODAL =====
             window.openModal = function (imageSrc) {
                 const modal = document.getElementById('imageModal');
                 const modalImg = document.getElementById('modalImage');
@@ -535,12 +769,11 @@
                 modalImg.src = imageSrc;
             };
 
-            // Close modal
             window.closeModal = function () {
                 document.getElementById('imageModal').classList.remove('active');
             };
 
-            // Mobile Sidebar Toggle (renamed to avoid conflict with header)
+            // ===== MOBILE SIDEBAR =====
             const sidebarToggleBtn = document.getElementById('sidebar-toggle-btn');
             const sidebar = document.getElementById('sidebar');
             const sidebarOverlay = document.getElementById('sidebar-overlay');
@@ -559,7 +792,7 @@
                 }
             };
 
-            // Close mobile menu when clicking a subcategory
+            // Close mobile menu when clicking a subcategory or standalone category
             document.querySelectorAll('.subcategory').forEach(item => {
                 item.addEventListener('click', () => {
                     if (window.innerWidth < 1024) {
@@ -567,6 +800,9 @@
                     }
                 });
             });
+
+            // ===== INITIAL RENDER =====
+            renderProduct('foilroof-sinusoidal');
         });
     </script>
 </body>

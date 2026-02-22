@@ -138,7 +138,7 @@ function loadFooter() {
                         </g>
                     </svg>
                 </div>
-                <p class="mb-6 leading-relaxed">Soluciones integrales de alta calidad para la industria frigorífica y construcción civil.</p>
+                <p class="mb-6 leading-relaxed">Soluciones de alta calidad para construcción y refrigeración.</p>
                 <div class="flex gap-3">
                     <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-brand-red hover:text-white transition backdrop-blur-sm">IG</a>
                     <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-brand-red hover:text-white transition backdrop-blur-sm">LI</a>
