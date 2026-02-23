@@ -384,9 +384,14 @@
                     <!-- Product Display Area -->
                     <div class="flex flex-col lg:grid lg:grid-cols-[1fr,120px] gap-8">
                         <!-- Main Product Image -->
-                        <div class="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl p-6 md:p-12 flex items-center justify-center min-h-[300px] md:min-h-[500px]"
+                        <div class="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl p-6 md:p-12 flex items-center justify-center min-h-[300px] md:min-h-[500px] relative overflow-hidden"
                             id="main-product-area">
-                            <div class="text-center w-full max-w-xs md:max-w-md">
+                            <!-- Real Image -->
+                            <img id="main-product-image" src="" alt="Producto"
+                                class="absolute inset-0 w-full h-full object-cover hidden">
+
+                            <!-- Placeholder (Visible only if image fails) -->
+                            <div id="main-product-placeholder" class="text-center w-full max-w-xs md:max-w-md">
                                 <div
                                     class="w-full aspect-square mx-auto mb-6 bg-white/50 rounded-lg flex items-center justify-center overflow-hidden">
                                     <svg class="w-32 h-32 text-gray-400" fill="none" stroke="currentColor"
@@ -402,31 +407,46 @@
                         </div>
 
                         <!-- Gallery Thumbnails -->
-                        <div
-                            class="flex flex-row lg:flex-col gap-3 overflow-x-auto lg:overflow-y-auto lg:max-h-[550px] pb-2 lg:pb-0 hide-scrollbar">
+                        <div class="flex flex-row lg:flex-col gap-3 overflow-x-auto lg:overflow-y-auto lg:max-h-[550px] pb-2 lg:pb-0 hide-scrollbar"
+                            id="gallery-container">
                             <div class="gallery-thumb active" onclick="selectGalleryImage(this, 1)">
-                                <div class="w-full h-full bg-gray-200 flex items-center justify-center">
-                                    <span class="text-xs text-gray-500 font-bold uppercase">Img 1</span>
+                                <div
+                                    class="w-full h-full bg-gray-200 flex items-center justify-center relative overflow-hidden">
+                                    <img src="" class="absolute inset-0 w-full h-full object-cover hidden"
+                                        alt="Vista 1">
+                                    <span class="text-xs text-gray-500 font-bold uppercase z-10">Img 1</span>
                                 </div>
                             </div>
                             <div class="gallery-thumb" onclick="selectGalleryImage(this, 2)">
-                                <div class="w-full h-full bg-gray-200 flex items-center justify-center">
-                                    <span class="text-xs text-gray-500 font-bold uppercase">Img 2</span>
+                                <div
+                                    class="w-full h-full bg-gray-200 flex items-center justify-center relative overflow-hidden">
+                                    <img src="" class="absolute inset-0 w-full h-full object-cover hidden"
+                                        alt="Vista 2">
+                                    <span class="text-xs text-gray-500 font-bold uppercase z-10">Img 2</span>
                                 </div>
                             </div>
                             <div class="gallery-thumb" onclick="selectGalleryImage(this, 3)">
-                                <div class="w-full h-full bg-gray-200 flex items-center justify-center">
-                                    <span class="text-xs text-gray-500 font-bold uppercase">Img 3</span>
+                                <div
+                                    class="w-full h-full bg-gray-200 flex items-center justify-center relative overflow-hidden">
+                                    <img src="" class="absolute inset-0 w-full h-full object-cover hidden"
+                                        alt="Vista 3">
+                                    <span class="text-xs text-gray-500 font-bold uppercase z-10">Img 3</span>
                                 </div>
                             </div>
                             <div class="gallery-thumb" onclick="selectGalleryImage(this, 4)">
-                                <div class="w-full h-full bg-gray-200 flex items-center justify-center">
-                                    <span class="text-xs text-gray-500 font-bold uppercase">Img 4</span>
+                                <div
+                                    class="w-full h-full bg-gray-200 flex items-center justify-center relative overflow-hidden">
+                                    <img src="" class="absolute inset-0 w-full h-full object-cover hidden"
+                                        alt="Vista 4">
+                                    <span class="text-xs text-gray-500 font-bold uppercase z-10">Img 4</span>
                                 </div>
                             </div>
                             <div class="gallery-thumb" onclick="selectGalleryImage(this, 5)">
-                                <div class="w-full h-full bg-gray-200 flex items-center justify-center">
-                                    <span class="text-xs text-gray-500 font-bold uppercase">Img 5</span>
+                                <div
+                                    class="w-full h-full bg-gray-200 flex items-center justify-center relative overflow-hidden">
+                                    <img src="" class="absolute inset-0 w-full h-full object-cover hidden"
+                                        alt="Vista 5">
+                                    <span class="text-xs text-gray-500 font-bold uppercase z-10">Img 5</span>
                                 </div>
                             </div>
                         </div>
@@ -650,7 +670,10 @@
             };
 
             // ===== RENDER PRODUCT =====
+            let currentProductId = '';
+
             function renderProduct(productId) {
+                currentProductId = productId;
                 const data = productData[productId];
                 if (!data) return;
 
@@ -692,6 +715,62 @@
                 } else {
                     colorSection.classList.add('hidden');
                 }
+
+                // Update Gallery images sources and fallback
+                updateGalleryMedia(productId);
+
+                // Select first gallery item by default
+                const firstThumb = document.querySelector('.gallery-thumb');
+                if (firstThumb) selectGalleryImage(firstThumb, 1);
+            }
+
+            // ===== MEDIA HANDLING =====
+            function updateGalleryMedia(productId) {
+                const thumbs = document.querySelectorAll('.gallery-thumb');
+                thumbs.forEach((thumb, index) => {
+                    const img = thumb.querySelector('img');
+                    const span = thumb.querySelector('span');
+                    const imageNum = index + 1;
+
+                    // Conventional path: assets/images/products/[id]-[num].webp
+                    // Note: Num 1 is the main view
+                    const suffix = imageNum === 1 ? 'main' : (imageNum - 1);
+                    const imgSrc = `assets/images/products/${productId}-${suffix}.webp`;
+
+                    const tempImg = new Image();
+                    tempImg.onload = function () {
+                        img.src = imgSrc;
+                        img.classList.remove('hidden');
+                        span.classList.add('hidden');
+                    };
+                    tempImg.onerror = function () {
+                        img.classList.add('hidden');
+                        span.classList.remove('hidden');
+                    };
+                    tempImg.src = imgSrc;
+                });
+            }
+
+            function updateMainMedia(productId, imageNum) {
+                const mainImg = document.getElementById('main-product-image');
+                const placeholder = document.getElementById('main-product-placeholder');
+
+                const suffix = imageNum === 1 ? 'main' : (imageNum - 1);
+                const imgSrc = `assets/images/products/${productId}-${suffix}.webp`;
+
+                const tempImg = new Image();
+                tempImg.onload = function () {
+                    mainImg.src = imgSrc;
+                    mainImg.classList.remove('hidden');
+                    placeholder.classList.add('hidden');
+                };
+                tempImg.onerror = function () {
+                    mainImg.classList.add('hidden');
+                    placeholder.classList.remove('hidden');
+                    // Hide main image if it was previously showing
+                    mainImg.classList.add('hidden');
+                };
+                tempImg.src = imgSrc;
             }
 
             // ===== TOGGLE CATEGORY (Accordion) =====
@@ -758,7 +837,9 @@
                     thumb.classList.remove('active');
                 });
                 element.classList.add('active');
-                console.log('Loading image:', imageNum);
+
+                // Update the main area display
+                updateMainMedia(currentProductId, imageNum);
             };
 
             // ===== MODAL =====
