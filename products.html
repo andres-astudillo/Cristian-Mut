@@ -272,9 +272,9 @@
                         </svg>
                     </div>
                     <div id="muros-list" class="mt-2 space-y-1 hidden">
-                        <div class="subcategory" onclick="selectProduct('claswall')">
+                        <div class="subcategory" onclick="selectProduct('classwall')">
                             <img src="assets/MICRONERVADO.svg" alt="Micronervado" class="pattern-icon" />
-                            <span>CLASWALL</span>
+                            <span>CLASSWALL</span>
                         </div>
                         <div class="subcategory" onclick="selectProduct('megacold')">
                             <svg class="pattern-icon" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
@@ -571,7 +571,7 @@
                     benefits: []
                 },
                 'claswall': {
-                    name: 'CLASWALL - Panel Micronervado',
+                    name: 'CLASSWALL - Panel Micronervado',
                     type: 'Panel Micronervado',
                     detail: 'ACERO + AISLANTE + ACERO',
                     characteristics: [
@@ -732,13 +732,13 @@
 
                     let imgSrc = '';
                     if (gallery && gallery[index]) {
-                         imgSrc = `assets/images/products/${gallery[index]}`;
+                        imgSrc = `assets/images/products/${gallery[index]}`;
                     } else if (!gallery) {
-                         const imageNum = index + 1;
-                         const suffix = imageNum === 1 ? 'main' : (imageNum - 1);
-                         imgSrc = `assets/images/products/${productId}-${suffix}.webp`;
+                        const imageNum = index + 1;
+                        const suffix = imageNum === 1 ? 'main' : (imageNum - 1);
+                        imgSrc = `assets/images/products/${productId}-${suffix}.webp`;
                     } else {
-                         imgSrc = ''; 
+                        imgSrc = '';
                     }
 
                     if (imgSrc) {
@@ -817,7 +817,7 @@
                 document.querySelectorAll('.subcategory').forEach(sub => {
                     sub.classList.remove('active');
                 });
-                
+
                 // Clear all active states (categories)
                 document.querySelectorAll('.category').forEach(cat => {
                     cat.classList.remove('active', 'bg-gray-800', 'text-white');
@@ -869,7 +869,7 @@
                     mainImg.src = imgSrc;
                     mainImg.classList.remove('hidden');
                     placeholder.classList.add('hidden');
-                    
+
                     document.querySelectorAll('.color-swatch').forEach(swatch => {
                         swatch.classList.remove('active');
                     });
