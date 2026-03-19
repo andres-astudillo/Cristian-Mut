@@ -58,12 +58,11 @@ function loadNavbar() {
 
             <!-- Navegación Desktop -->
             <nav class="hidden md:flex space-x-6">
-                <a href="index.html" class="text-sm font-bold ${currentPage === 'index.html' ? 'text-white border-b-2 border-white' : 'text-brand-light hover:text-white hover:border-b-2 hover:border-white'} py-2 transition">INICIO</a>
-                <a href="products.html" class="text-sm font-bold ${currentPage === 'products.html' ? 'text-white border-b-2 border-white' : 'text-brand-light hover:text-white hover:border-b-2 hover:border-white'} py-2 transition">PRODUCTOS</a>
-                <a href="camaras-frigorificas.html" class="text-sm font-bold ${currentPage === 'camaras-frigorificas.html' ? 'text-white border-b-2 border-white' : 'text-brand-light hover:text-white hover:border-b-2 hover:border-white'} py-2 transition uppercase">CÁMARAS FRIGORÍFICAS</a>
-               <!-- <a href="projects.html" class="text-sm font-bold ${currentPage === 'projects.html' ? 'text-white border-b-2 border-white' : 'text-brand-light hover:text-white hover:border-b-2 hover:border-white'} py-2 transition">PROYECTOS</a> -->
-                <a href="about.html" class="text-sm font-bold ${currentPage === 'about.html' ? 'text-white border-b-2 border-white' : 'text-brand-light hover:text-white hover:border-b-2 hover:border-white'} py-2 transition">QUIÉNES SOMOS</a>
-                <a href="contact.html" class="text-sm font-bold ${currentPage === 'contact.html' ? 'text-white border-b-2 border-white' : 'text-brand-light hover:text-white hover:border-b-2 hover:border-white'} py-2 transition">CONTACTO</a>
+                <a href="index.html" class="text-xs lg:text-sm font-bold ${currentPage === 'index.html' ? 'text-white border-b-2 border-white' : 'text-brand-light hover:text-white hover:border-b-2 hover:border-white'} py-2 transition">INICIO</a>
+                <a href="products.html" class="text-xs lg:text-sm font-bold ${currentPage === 'products.html' ? 'text-white border-b-2 border-white' : 'text-brand-light hover:text-white hover:border-b-2 hover:border-white'} py-2 transition">PRODUCTOS</a>
+                <a href="camaras-frigorificas.html" class="text-xs lg:text-sm font-bold ${currentPage === 'camaras-frigorificas.html' ? 'text-white border-b-2 border-white' : 'text-brand-light hover:text-white hover:border-b-2 hover:border-white'} py-2 transition">CÁMARAS FRIGORÍFICAS</a>
+                <a href="about.html" class="text-xs lg:text-sm font-bold ${currentPage === 'about.html' ? 'text-white border-b-2 border-white' : 'text-brand-light hover:text-white hover:border-b-2 hover:border-white'} py-2 transition">QUIÉNES SOMOS</a>
+                <a href="contact.html" class="text-xs lg:text-sm font-bold ${currentPage === 'contact.html' ? 'text-white border-b-2 border-white' : 'text-brand-light hover:text-white hover:border-b-2 hover:border-white'} py-2 transition">CONTACTO</a>
             </nav>
 
             <!-- CTA Header -->
@@ -89,7 +88,6 @@ function loadNavbar() {
                 <a href="index.html" class="text-white hover:text-blue-200 font-bold ${currentPage === 'index.html' ? 'underline decoration-2' : ''}">INICIO</a>
                 <a href="products.html" class="text-white hover:text-blue-200 font-bold ${currentPage === 'products.html' ? 'underline decoration-2' : ''}">PRODUCTOS</a>
                 <a href="camaras-frigorificas.html" class="text-white hover:text-blue-200 font-bold ${currentPage === 'camaras-frigorificas.html' ? 'underline decoration-2' : ''}">CÁMARAS FRIGORÍFICAS</a>
-                <a href="projects.html" class="text-white hover:text-blue-200 font-bold ${currentPage === 'projects.html' ? 'underline decoration-2' : ''}">PROYECTOS</a>
                 <a href="about.html" class="text-white hover:text-blue-200 font-bold ${currentPage === 'about.html' ? 'underline decoration-2' : ''}">QUIÉNES SOMOS</a>
                 <a href="contact.html" class="text-white hover:text-blue-200 font-bold ${currentPage === 'contact.html' ? 'underline decoration-2' : ''}">CONTACTO</a>
             </nav>
@@ -152,7 +150,7 @@ function loadFooter() {
                 <ul class="space-y-3">
                     <li><a href="index.html" class="hover:text-white hover:underline decoration-brand-red underline-offset-4 transition">Inicio</a></li>
                     <li><a href="products.html" class="hover:text-white hover:underline decoration-brand-red underline-offset-4 transition">Productos</a></li>
-                    <!-- <li><a href="projects.html" class="hover:text-white hover:underline decoration-brand-red underline-offset-4 transition">Proyectos</a></li> -->
+                    <li><a href="camaras-frigorificas.html" class="hover:text-white hover:underline decoration-brand-red underline-offset-4 transition">Cámaras Frigoríficas</a></li>
                     <li><a href="about.html" class="hover:text-white hover:underline decoration-brand-red underline-offset-4 transition">Quiénes Somos</a></li>
                     <li><a href="contact.html" class="hover:text-white hover:underline decoration-brand-red underline-offset-4 transition">Contacto</a></li>
                 </ul>
