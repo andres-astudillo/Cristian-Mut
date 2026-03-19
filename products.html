@@ -290,31 +290,12 @@
                 <!-- Cámaras Frigoríficas Category -->
                 <div class="mb-4">
                     <div class="category bg-gray-100 text-gray-800 rounded-lg p-4 flex justify-between items-center"
-                        onclick="toggleCategory('camaras')">
+                        onclick="window.location.href='camaras-frigorificas.html'">
                         <span class="font-semibold">Cámaras Frigoríficas</span>
-                        <svg id="camaras-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                        <svg class="w-5 h-5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
                             </path>
                         </svg>
-                    </div>
-                    <div id="camaras-list" class="mt-2 space-y-1 hidden">
-                        <div class="subcategory" onclick="selectProduct('media-temperatura')">
-                            <svg class="pattern-icon" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="10" y="5" width="80" height="30" stroke="currentColor" stroke-width="2"
-                                    fill="none" rx="3" />
-                                <line x1="50" y1="12" x2="50" y2="28" stroke="currentColor" stroke-width="2" />
-                                <line x1="42" y1="20" x2="58" y2="20" stroke="currentColor" stroke-width="2" />
-                            </svg>
-                            <span>Media Temperatura</span>
-                        </div>
-                        <div class="subcategory" onclick="selectProduct('baja-temperatura')">
-                            <svg class="pattern-icon" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="10" y="5" width="80" height="30" stroke="currentColor" stroke-width="2"
-                                    fill="none" rx="3" />
-                                <line x1="42" y1="20" x2="58" y2="20" stroke="currentColor" stroke-width="2" />
-                            </svg>
-                            <span>Baja Temperatura</span>
-                        </div>
                     </div>
                 </div>
 
@@ -388,7 +369,7 @@
                             id="main-product-area">
                             <!-- Real Image -->
                             <img id="main-product-image" src="" alt="Producto"
-                                class="absolute inset-0 w-full h-full object-cover hidden">
+                                class="absolute inset-0 w-full h-full object-contain hidden">
 
                             <!-- Placeholder (Visible only if image fails) -->
                             <div id="main-product-placeholder" class="text-center w-full max-w-xs md:max-w-md">
@@ -412,7 +393,7 @@
                             <div class="gallery-thumb active" onclick="selectGalleryImage(this, 1)">
                                 <div
                                     class="w-full h-full bg-gray-200 flex items-center justify-center relative overflow-hidden">
-                                    <img src="" class="absolute inset-0 w-full h-full object-cover hidden"
+                                    <img src="" class="absolute inset-0 w-full h-full object-contain hidden"
                                         alt="Vista 1">
                                     <span class="text-xs text-gray-500 font-bold uppercase z-10">Img 1</span>
                                 </div>
@@ -420,7 +401,7 @@
                             <div class="gallery-thumb" onclick="selectGalleryImage(this, 2)">
                                 <div
                                     class="w-full h-full bg-gray-200 flex items-center justify-center relative overflow-hidden">
-                                    <img src="" class="absolute inset-0 w-full h-full object-cover hidden"
+                                    <img src="" class="absolute inset-0 w-full h-full object-contain hidden"
                                         alt="Vista 2">
                                     <span class="text-xs text-gray-500 font-bold uppercase z-10">Img 2</span>
                                 </div>
@@ -428,7 +409,7 @@
                             <div class="gallery-thumb" onclick="selectGalleryImage(this, 3)">
                                 <div
                                     class="w-full h-full bg-gray-200 flex items-center justify-center relative overflow-hidden">
-                                    <img src="" class="absolute inset-0 w-full h-full object-cover hidden"
+                                    <img src="" class="absolute inset-0 w-full h-full object-contain hidden"
                                         alt="Vista 3">
                                     <span class="text-xs text-gray-500 font-bold uppercase z-10">Img 3</span>
                                 </div>
@@ -436,7 +417,7 @@
                             <div class="gallery-thumb" onclick="selectGalleryImage(this, 4)">
                                 <div
                                     class="w-full h-full bg-gray-200 flex items-center justify-center relative overflow-hidden">
-                                    <img src="" class="absolute inset-0 w-full h-full object-cover hidden"
+                                    <img src="" class="absolute inset-0 w-full h-full object-contain hidden"
                                         alt="Vista 4">
                                     <span class="text-xs text-gray-500 font-bold uppercase z-10">Img 4</span>
                                 </div>
@@ -444,7 +425,7 @@
                             <div class="gallery-thumb" onclick="selectGalleryImage(this, 5)">
                                 <div
                                     class="w-full h-full bg-gray-200 flex items-center justify-center relative overflow-hidden">
-                                    <img src="" class="absolute inset-0 w-full h-full object-cover hidden"
+                                    <img src="" class="absolute inset-0 w-full h-full object-contain hidden"
                                         alt="Vista 5">
                                     <span class="text-xs text-gray-500 font-bold uppercase z-10">Img 5</span>
                                 </div>
@@ -621,10 +602,7 @@
                         'Espesor de aislación: 30 mm, 50 mm, 60 mm, 100 mm, 150 mm'
                     ],
                     colors: [
-                        { name: 'Silver', hex: '#C0C0C0', img: 'MEGACOLD.png' },
-                        { name: 'Gris Pizarra', hex: '#708090', img: 'MEGACOLD.png' },
-                        { name: 'Blanco', hex: '#FFFFFF', border: true, img: 'MEGACOLD.png' },
-                        { name: 'Cincalum', hex: '#B8B8B8', img: 'MEGACOLD.png' }
+                        { name: 'Blanco', hex: '#FFFFFF', border: true, img: 'MEGACOLD.png' }
                     ],
                     gallery: ['panel-sandwich-frigorifico-para-muro.png'],
                     benefits: []
@@ -809,9 +787,19 @@
                 });
 
                 // Reset all category styles
+                // Collapse ALL categories and subcategories first
+                allCategoryIds.forEach(id => {
+                    const l = document.getElementById(id + '-list');
+                    const i = document.getElementById(id + '-icon');
+                    if (l) l.classList.add('hidden');
+                    if (i) i.classList.remove('rotate-180');
+                });
                 document.querySelectorAll('.category').forEach(cat => {
                     cat.classList.remove('active', 'bg-gray-800', 'text-white');
                     cat.classList.add('bg-gray-100', 'text-gray-800');
+                });
+                document.querySelectorAll('.subcategory').forEach(sub => {
+                    sub.classList.remove('active');
                 });
 
                 // If was closed, open it now
@@ -825,12 +813,25 @@
 
             // ===== SELECT PRODUCT =====
             window.selectProduct = function (productType) {
-                // Update active subcategory
+                // Clear all active states (subcategories)
                 document.querySelectorAll('.subcategory').forEach(sub => {
                     sub.classList.remove('active');
                 });
-                if (event && event.currentTarget && event.currentTarget.classList) {
-                    event.currentTarget.classList.add('active');
+                
+                // Clear all active states (categories)
+                document.querySelectorAll('.category').forEach(cat => {
+                    cat.classList.remove('active', 'bg-gray-800', 'text-white');
+                    cat.classList.add('bg-gray-100', 'text-gray-800');
+                });
+
+                if (event && event.currentTarget) {
+                    const el = event.currentTarget;
+                    el.classList.add('active');
+                    // If it's a category, apply the dark theme
+                    if (el.classList.contains('category')) {
+                        el.classList.remove('bg-gray-100', 'text-gray-800');
+                        el.classList.add('bg-gray-800', 'text-white');
+                    }
                 }
 
                 // Render the product

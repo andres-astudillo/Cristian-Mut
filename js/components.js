@@ -60,6 +60,7 @@ function loadNavbar() {
             <nav class="hidden md:flex space-x-6">
                 <a href="index.html" class="text-sm font-bold ${currentPage === 'index.html' ? 'text-white border-b-2 border-white' : 'text-brand-light hover:text-white hover:border-b-2 hover:border-white'} py-2 transition">INICIO</a>
                 <a href="products.html" class="text-sm font-bold ${currentPage === 'products.html' ? 'text-white border-b-2 border-white' : 'text-brand-light hover:text-white hover:border-b-2 hover:border-white'} py-2 transition">PRODUCTOS</a>
+                <a href="camaras-frigorificas.html" class="text-sm font-bold ${currentPage === 'camaras-frigorificas.html' ? 'text-white border-b-2 border-white' : 'text-brand-light hover:text-white hover:border-b-2 hover:border-white'} py-2 transition uppercase">CÁMARAS FRIGORÍFICAS</a>
                <!-- <a href="projects.html" class="text-sm font-bold ${currentPage === 'projects.html' ? 'text-white border-b-2 border-white' : 'text-brand-light hover:text-white hover:border-b-2 hover:border-white'} py-2 transition">PROYECTOS</a> -->
                 <a href="about.html" class="text-sm font-bold ${currentPage === 'about.html' ? 'text-white border-b-2 border-white' : 'text-brand-light hover:text-white hover:border-b-2 hover:border-white'} py-2 transition">QUIÉNES SOMOS</a>
                 <a href="contact.html" class="text-sm font-bold ${currentPage === 'contact.html' ? 'text-white border-b-2 border-white' : 'text-brand-light hover:text-white hover:border-b-2 hover:border-white'} py-2 transition">CONTACTO</a>
@@ -87,6 +88,7 @@ function loadNavbar() {
             <nav class="bg-brand-blue/95 w-full border-b border-white/10 shadow-xl flex flex-col p-6 space-y-4">
                 <a href="index.html" class="text-white hover:text-blue-200 font-bold ${currentPage === 'index.html' ? 'underline decoration-2' : ''}">INICIO</a>
                 <a href="products.html" class="text-white hover:text-blue-200 font-bold ${currentPage === 'products.html' ? 'underline decoration-2' : ''}">PRODUCTOS</a>
+                <a href="camaras-frigorificas.html" class="text-white hover:text-blue-200 font-bold ${currentPage === 'camaras-frigorificas.html' ? 'underline decoration-2' : ''}">CÁMARAS FRIGORÍFICAS</a>
                 <a href="projects.html" class="text-white hover:text-blue-200 font-bold ${currentPage === 'projects.html' ? 'underline decoration-2' : ''}">PROYECTOS</a>
                 <a href="about.html" class="text-white hover:text-blue-200 font-bold ${currentPage === 'about.html' ? 'underline decoration-2' : ''}">QUIÉNES SOMOS</a>
                 <a href="contact.html" class="text-white hover:text-blue-200 font-bold ${currentPage === 'contact.html' ? 'underline decoration-2' : ''}">CONTACTO</a>
