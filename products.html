@@ -287,6 +287,44 @@
                     </div>
                 </div>
 
+                <!-- Accesorios Category -->
+                <div class="mb-4">
+                    <div class="category bg-gray-100 text-gray-800 rounded-lg p-4 flex justify-between items-center"
+                        onclick="toggleCategory('accesorios')">
+                        <span class="font-semibold">Accesorios</span>
+                        <svg id="accesorios-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div id="accesorios-list" class="mt-2 space-y-1 hidden">
+                        <div class="subcategory" onclick="selectProduct('accesorios-fijaciones')">
+                            <span>Fijaciones</span>
+                        </div>
+                        <div class="subcategory" onclick="selectProduct('accesorios-selladores')">
+                            <span>Selladores</span>
+                        </div>
+                        <div class="subcategory" onclick="selectProduct('accesorios-camaras')">
+                            <span>Cámaras Frigoríficas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Perfilería Category -->
+                <div class="mb-4">
+                    <div class="category bg-gray-100 text-gray-800 rounded-lg p-4 flex justify-between items-center"
+                        onclick="toggleCategory('perfileria')">
+                        <span class="font-semibold">Perfilería</span>
+                        <svg id="perfileria-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div id="perfileria-list" class="mt-2 space-y-1 hidden">
+                        <div class="subcategory" onclick="selectProduct('perfileria-terminaciones')">
+                            <span>Terminaciones</span>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Cámaras Frigoríficas Category -->
                 <div class="mb-4">
                     <div class="category bg-gray-100 text-gray-800 rounded-lg p-4 flex justify-between items-center"
@@ -296,30 +334,6 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
                             </path>
                         </svg>
-                    </div>
-                </div>
-
-                <!-- Accesorios Category -->
-                <div class="mb-4">
-                    <div class="category bg-gray-100 text-gray-800 rounded-lg p-4 cursor-pointer"
-                        onclick="selectProduct('accesorios')">
-                        <span class="font-semibold">Accesorios</span>
-                    </div>
-                </div>
-
-                <!-- Perfilería Category -->
-                <div class="mb-4">
-                    <div class="category bg-gray-100 text-gray-800 rounded-lg p-4 cursor-pointer"
-                        onclick="selectProduct('perfileria')">
-                        <span class="font-semibold">Perfilería</span>
-                    </div>
-                </div>
-
-                <!-- Inspiración Category -->
-                <div class="mb-4">
-                    <div class="category bg-gray-100 text-gray-800 rounded-lg p-4"
-                        onclick="window.location.href='projects.html'">
-                        <span class="font-semibold">Inspiración</span>
                     </div>
                 </div>
             </div>
@@ -570,7 +584,7 @@
                     gallery: ['TRAPEZOIDAL.jpg', 'TRAPEZOIDAL 2.jpg'],
                     benefits: []
                 },
-                'claswall': {
+                'classwall': {
                     name: 'CLASSWALL - Panel Micronervado',
                     type: 'Panel Micronervado',
                     detail: 'ACERO + AISLANTE + ACERO',
@@ -581,13 +595,13 @@
                         'Medidas: Largo mínimo 2,3 m — Largo máximo 6 m'
                     ],
                     colors: [
-                        { name: 'Silver', hex: '#C0C0C0', img: 'PAREDES_MICRONERVADO_LIGHT_GREY.png' },
+                        { name: 'Silver', hex: '#C0C0C0', img: 'fotos/foto-8-claswall-gris-silver.png' },
                         { name: 'Negro', hex: '#1a1a1a', img: 'PAREDES_MICRONERVADO_BLACK.png' },
-                        { name: 'Gris Pizarra', hex: '#708090', img: 'PAREDES_MICRONERVADO_DARK_GREY.png' },
-                        { name: 'Blanco', hex: '#FFFFFF', border: true, img: 'PAREDES_MICRONERVADO_WHITE.png' },
-                        { name: 'Cincalum', hex: '#B8B8B8', img: 'PAREDES_MICRONERVADO_CREAM.png' }
+                        { name: 'Gris Pizarra', hex: '#708090', img: 'fotos/foto-8-claswall-gris-pizarra.png' },
+                        { name: 'Blanco', hex: '#FFFFFF', border: true, img: 'fotos/foto-8-claswall-blanco.png' },
+                        { name: 'Cincalum', hex: '#B8B8B8', img: 'fotos/foto-8-claswall-cincalum.png' }
                     ],
-                    gallery: ['CLASSWALL MUESTRARIO DE REVESTIMIENTO.png'],
+                    gallery: [],
                     benefits: []
                 },
                 'megacold': {
@@ -604,7 +618,7 @@
                     colors: [
                         { name: 'Blanco', hex: '#FFFFFF', border: true, img: 'MEGACOLD.png' }
                     ],
-                    gallery: ['panel-sandwich-frigorifico-para-muro.png'],
+                    gallery: ['fotos/foto-5-paneles-aislantes.png'],
                     benefits: []
                 },
                 'media-temperatura': {
@@ -631,28 +645,62 @@
                     gallery: ['bfc15b4c-ebce-44c2-b3a0-5caadc4422e8.jpeg', '5e6e45ce-5f19-4aa7-93e5-c0c624759d2b.jpeg'],
                     benefits: []
                 },
-                'accesorios': {
-                    name: 'Accesorios',
+                'accesorios-fijaciones': {
+                    name: 'Fijaciones',
                     type: 'Accesorios',
-                    detail: 'Accesorios complementarios para paneles y cámaras',
-                    characteristics: [
-                        'Accesorios de instalación y terminación para paneles aislantes',
-                        'Consulte por disponibilidad y modelos'
-                    ],
+                    detail: 'Tornillos y capellotos para paneles',
+                    characteristics: [],
                     colors: [],
-                    gallery: ['CAPPELLOTTO.png', 'CAPELLOTTO SINU.png', 'CAMARA LTN.png'],
+                    gallery: [
+                        'fotos/foto-10-tornillos-solos.png',
+                        'fotos/foto-11-tornillos-trapezoidales.png',
+                        'fotos/foto-12-capellotos-trap-sinu.png',
+                        'fotos/foto-13-capellotos-sinusoidales.png'
+                    ],
                     benefits: []
                 },
-                'perfileria': {
-                    name: 'Perfilería',
-                    type: 'Perfilería',
-                    detail: 'Perfiles de soporte y fijación',
-                    characteristics: [
-                        'Perfilería complementaria para instalación de paneles',
-                        'Consulte por disponibilidad y modelos'
-                    ],
+                'accesorios-selladores': {
+                    name: 'Selladores',
+                    type: 'Accesorios',
+                    detail: 'Selladores y cintas para paneles y cámaras',
+                    characteristics: [],
                     colors: [],
-                    gallery: ['CAPPELLOTTO.png', 'CAPELLOTTO SINU.png'],
+                    gallery: [
+                        'fotos/foto-14-sellador-poliuretanico.png',
+                        'fotos/foto-15-masilla-camaras.png',
+                        'fotos/foto-16-sellador-400gr.png',
+                        'fotos/foto-17-silicona-blanca.png',
+                        'fotos/foto-18-silicona-acetica.png',
+                        'fotos/foto-19-poliuretano-expandido.png'
+                    ],
+                    benefits: []
+                },
+                'accesorios-camaras': {
+                    name: 'Cámaras Frigoríficas',
+                    type: 'Accesorios',
+                    detail: 'Accesorios para cámaras frigoríficas',
+                    characteristics: [],
+                    colors: [],
+                    gallery: [
+                        'fotos/foto-20-manija-camaras.png',
+                        'fotos/foto-21-manija-camaras-2.png',
+                        'fotos/foto-22-luminarias.png',
+                        'fotos/foto-23-luminarias-2.png',
+                        'fotos/foto-24-cortina.png',
+                        'fotos/foto-25-bisagra-camaras.png'
+                    ],
+                    benefits: []
+                },
+                'perfileria-terminaciones': {
+                    name: 'Terminaciones',
+                    type: 'Perfilería',
+                    detail: 'Perfiles de terminación y acabado',
+                    characteristics: [],
+                    colors: [],
+                    gallery: [
+                        'fotos/foto-26-esquineros.jpeg',
+                        'fotos/foto-27-u-de-pvc.jpeg'
+                    ],
                     benefits: []
                 }
             };
@@ -766,7 +814,7 @@
             }
 
             // ===== TOGGLE CATEGORY (Accordion) =====
-            const allCategoryIds = ['techos', 'muros', 'camaras'];
+            const allCategoryIds = ['techos', 'muros', 'camaras', 'accesorios', 'perfileria'];
 
             window.toggleCategory = function (categoryId) {
                 const list = document.getElementById(categoryId + '-list');
