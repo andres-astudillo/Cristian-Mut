@@ -78,6 +78,106 @@
         body {
             background-color: #ffffff;
         }
+
+        /* Hero Full-Width Carousel */
+        .hero-fw {
+            position: relative;
+            width: 100%;
+            min-height: 90vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        .hero-fw-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .hero-fw-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .hero-fw-slide.active {
+            opacity: 1;
+        }
+        .hero-fw-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        /* Gradient overlay: dark on left for text legibility, semi-dark on right */
+        .hero-fw-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to right,
+                rgba(11, 18, 64, 0.82) 0%,
+                rgba(11, 18, 64, 0.60) 50%,
+                rgba(11, 18, 64, 0.35) 100%
+            );
+            z-index: 1;
+        }
+        /* Bottom dark strip to ensure dots are visible */
+        .hero-fw-overlay::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 80px;
+            background: linear-gradient(to top, rgba(11,18,64,0.6), transparent);
+        }
+        .hero-fw-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+        .hero-fw-dots {
+            position: absolute;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 3;
+        }
+        .hero-fw-dot {
+            width: 32px;
+            height: 4px;
+            border-radius: 2px;
+            background: rgba(255,255,255,0.35);
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, width 0.3s;
+            padding: 0;
+        }
+        .hero-fw-dot.active {
+            background: #ffffff;
+            width: 48px;
+        }
+        .hero-fw-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(4px);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.25);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+            z-index: 3;
+        }
+        .hero-fw-btn:hover { background: rgba(255,255,255,0.25); }
+        .hero-fw-btn.prev { left: 20px; }
+        .hero-fw-btn.next { right: 20px; }
     </style>
 </head>
 
@@ -90,50 +190,88 @@
     <!-- MAIN CONTENT -->
     <main class="flex-grow">
 
-        <!-- HERO SECTION -->
-        <section
-            class="w-full bg-gradient-to-b from-brand-light to-white border-b border-brand-blue/10 py-24 px-4 relative overflow-hidden">
-            <!-- Decorative blobs -->
-            <div
-                class="absolute top-0 right-0 w-96 h-96 bg-brand-blue/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2">
-            </div>
-            <div
-                class="absolute bottom-0 left-0 w-64 h-64 bg-brand-red/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2">
-            </div>
-            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="relative z-10">
-                    <h1 class="font-heading text-4xl md:text-6xl text-brand-dark mb-6 leading-tight">
-                        Soluciones en refrigeración y aislamiento
-                    </h1>
-                    <p class="text-lg md:text-xl mb-8 leading-relaxed text-slate-600 max-w-xl">
-                        Diseñamos y proveemos paneles aislantes, cámaras de frío y techos eficientes, con
-                        asesoramiento técnico personalizado para cada proyecto
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="https://wa.me/5492616544130"
-                            class="bg-[#25D366] text-white px-8 py-4 font-bold uppercase rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition transform text-center flex items-center justify-center gap-2 hover:bg-[#128C7E]">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-current" viewBox="0 0 24 24">
-                                <path
-                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-                            </svg>
-                            <span>Cotizar por WhatsApp</span>
-                        </a>
-                        <a href="products.html"
-                            class="bg-brand-red text-white px-8 py-4 font-bold uppercase rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition transform text-center flex items-center justify-center hover:bg-red-700">
-                            Ver catálogo de productos
-                        </a>
-                    </div>
+        <!-- HERO SECTION — Full-width con overlay -->
+        <section class="hero-fw">
+            <!-- Fondo: imágenes apiladas con fade -->
+            <div class="hero-fw-bg">
+                <div class="hero-fw-slide active" id="hslide-0">
+                    <img src="assets/images/fotos/foto-1-local-desde-arriba.jpeg" alt="Local Cristian Mut SA visto desde arriba">
                 </div>
-                <!-- Hero Image Placeholder -->
-                <!-- Hero Image Placeholder -->
-                <div
-                    class="w-full aspect-[4/3] border-4 border-brand-blue/30 rounded-xl shadow-2xl relative overflow-hidden group">
-                    <img src="assets/images/hero.png" alt="Instalación de paneles aislantes y cámaras frigoríficas industriales" class="w-full h-full object-cover">
-                    <div
-                        class="absolute inset-0 bg-brand-blue/10 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition duration-1000">
-                    </div>
+                <div class="hero-fw-slide" id="hslide-1">
+                    <img src="assets/images/fotos/foto-2-galpon.jpeg" alt="Galpón industrial Cristian Mut SA">
+                </div>
+                <div class="hero-fw-slide" id="hslide-2">
+                    <img src="assets/images/fotos/foto-3-muestras.jpeg" alt="Muestras de paneles aislantes">
+                </div>
+                <div class="hero-fw-slide" id="hslide-3">
+                    <img src="assets/images/fotos/foto-4-portada.jpeg" alt="Instalaciones industriales Cristian Mut SA">
                 </div>
             </div>
+
+            <!-- Overlay oscuro -->
+            <div class="hero-fw-overlay"></div>
+
+            <!-- Contenido sobre el overlay -->
+            <div class="hero-fw-content">
+                <div class="max-w-7xl mx-auto px-6 md:px-12 py-28">
+                    <div class="max-w-2xl">
+                        <span class="inline-block bg-white/10 backdrop-blur-sm text-white/80 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-6 border border-white/20">
+                            Cristian Mut SA
+                        </span>
+                        <h1 class="font-heading text-5xl md:text-7xl text-white mb-6 leading-tight drop-shadow-lg">
+                            Soluciones en refrigeración y aislamiento
+                        </h1>
+                        <p class="text-lg md:text-xl mb-10 leading-relaxed text-white/80 max-w-xl">
+                            Diseñamos y proveemos paneles aislantes, cámaras de frío y techos eficientes, con
+                            asesoramiento técnico personalizado para cada proyecto.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="https://wa.me/5492616544130"
+                                class="bg-[#25D366] text-white px-8 py-4 font-bold uppercase rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition transform text-center flex items-center justify-center gap-2 hover:bg-[#128C7E]">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                                </svg>
+                                <span>Cotizar por WhatsApp</span>
+                            </a>
+                            <a href="products.html"
+                                class="bg-white/10 backdrop-blur-sm text-white px-8 py-4 font-bold uppercase rounded-full border-2 border-white/40 shadow-lg hover:bg-white hover:text-brand-dark hover:scale-105 transition transform text-center flex items-center justify-center">
+                                Ver catálogo de productos
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botones prev/next -->
+            <button class="hero-fw-btn prev" onclick="heroCarousel(-1)">&#8249;</button>
+            <button class="hero-fw-btn next" onclick="heroCarousel(1)">&#8250;</button>
+
+            <!-- Dots de navegación -->
+            <div class="hero-fw-dots">
+                <button class="hero-fw-dot active" onclick="heroGoTo(0)"></button>
+                <button class="hero-fw-dot" onclick="heroGoTo(1)"></button>
+                <button class="hero-fw-dot" onclick="heroGoTo(2)"></button>
+                <button class="hero-fw-dot" onclick="heroGoTo(3)"></button>
+            </div>
+
+            <script>
+                (function(){
+                    var idx = 0, total = 4, timer;
+                    function update(newIdx) {
+                        document.getElementById('hslide-' + idx).classList.remove('active');
+                        idx = (newIdx + total) % total;
+                        document.getElementById('hslide-' + idx).classList.add('active');
+                        document.querySelectorAll('.hero-fw-dot').forEach(function(d, i){ d.classList.toggle('active', i === idx); });
+                    }
+                    window.heroCarousel = function(dir) { update(idx + dir); };
+                    window.heroGoTo = function(i) { update(i); };
+                    function startTimer() { timer = setInterval(function(){ heroCarousel(1); }, 5000); }
+                    // Pause on hover
+                    document.querySelector('.hero-fw').addEventListener('mouseenter', function(){ clearInterval(timer); });
+                    document.querySelector('.hero-fw').addEventListener('mouseleave', function(){ startTimer(); });
+                    startTimer();
+                })();
+            </script>
         </section>
 
         <!-- WHAT WE DO -->
@@ -269,18 +407,18 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Product 1 -->
+                <!-- Product 1: Paneles Aislantes -->
                 <div
                     class="bg-white/40 backdrop-blur-md rounded-xl border border-white/50 overflow-hidden shadow-lg hover:shadow-2xl transition hover:-translate-y-1 flex flex-col group">
                     <div
                         class="bg-gray-100 aspect-[4/3] flex items-center justify-center overflow-hidden group-hover:scale-105 transition duration-500">
-                        <img src="assets/images/panel.png" alt="Paneles aislantes para techos y paredes industriales" class="w-full h-full object-cover">
+                        <img src="assets/images/fotos/foto-5-paneles-aislantes.png" alt="Paneles aislantes para techos y paredes industriales" class="w-full h-full object-cover">
                     </div>
                     <div class="p-6 flex flex-col flex-grow relative z-10 bg-white">
                         <h3 class="font-heading text-xl font-bold text-brand-dark mb-2">Paneles Aislantes</h3>
                         <p class="text-slate-600 text-sm mb-6 flex-grow">Paneles diseñados para aislamiento térmico
                             eficiente en cámaras de frío y estructuras industriales.</p>
-                        <a href="https://wa.me/"
+                        <a href="https://wa.me/5492616544130"
                             class="w-full bg-[#25D366] border-2 border-[#25D366] text-white py-3 rounded-lg font-bold uppercase text-sm hover:bg-[#128C7E] hover:border-[#128C7E] transition text-center block shadow-sm flex items-center justify-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current" viewBox="0 0 24 24">
                                 <path
@@ -290,18 +428,17 @@
                         </a>
                     </div>
                 </div>
-                <!-- Product 2 -->
+                <!-- Product 2: Cámaras Frigoríficas -->
                 <div
                     class="bg-white/40 backdrop-blur-md rounded-xl border border-white/50 overflow-hidden shadow-lg hover:shadow-2xl transition hover:-translate-y-1 flex flex-col group">
                     <div
                         class="bg-gray-100 aspect-[4/3] flex items-center justify-center overflow-hidden group-hover:scale-105 transition duration-500">
-                        <img src="assets/images/door.png" alt="Puertas frigoríficas de alta eficiencia térmica" class="w-full h-full object-cover">
+                        <img src="assets/images/fotos/foto-6-camaras-frigorificas.png" alt="Cámaras frigoríficas industriales y comerciales" class="w-full h-full object-cover">
                     </div>
                     <div class="p-6 flex flex-col flex-grow relative z-10 bg-white">
-                        <h3 class="font-heading text-xl font-bold text-brand-dark mb-2">Puertas Frigoríficas</h3>
-                        <p class="text-slate-600 text-sm mb-6 flex-grow">Sistemas de apertura y cierre hermético para
-                            máxima conservación de temperatura.</p>
-                        <a href="https://wa.me/"
+                        <h3 class="font-heading text-xl font-bold text-brand-dark mb-2">Cámaras Frigoríficas</h3>
+                        <p class="text-slate-600 text-sm mb-6 flex-grow">Soluciones completas de refrigeración para conservación y congelación de productos.</p>
+                        <a href="https://wa.me/5492616544130"
                             class="w-full bg-[#25D366] border-2 border-[#25D366] text-white py-3 rounded-lg font-bold uppercase text-sm hover:bg-[#128C7E] hover:border-[#128C7E] transition text-center block shadow-sm flex items-center justify-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current" viewBox="0 0 24 24">
                                 <path
@@ -311,18 +448,17 @@
                         </a>
                     </div>
                 </div>
-                <!-- Product 3 -->
+                <!-- Product 3: Naves Industriales -->
                 <div
                     class="bg-white/40 backdrop-blur-md rounded-xl border border-white/50 overflow-hidden shadow-lg hover:shadow-2xl transition hover:-translate-y-1 flex flex-col group">
                     <div
                         class="bg-gray-100 aspect-[4/3] flex items-center justify-center overflow-hidden group-hover:scale-105 transition duration-500">
-                        <img src="assets/images/roof.png" alt="Techos aislantes industriales y cerramientos térmicos" class="w-full h-full object-cover">
+                        <img src="assets/images/fotos/foto-7-naves-industriales.png" alt="Naves industriales con techos y paredes aislantes" class="w-full h-full object-cover">
                     </div>
                     <div class="p-6 flex flex-col flex-grow relative z-10 bg-white">
-                        <h3 class="font-heading text-xl font-bold text-brand-dark mb-2">Equipos de Refrigeración</h3>
-                        <p class="text-slate-600 text-sm mb-6 flex-grow">Cubiertas metálicas con aislación integrada
-                            para naves industriales.</p>
-                        <a href="https://wa.me/"
+                        <h3 class="font-heading text-xl font-bold text-brand-dark mb-2">Naves Industriales</h3>
+                        <p class="text-slate-600 text-sm mb-6 flex-grow">Cubiertas y cerramientos metálicos con aislación integrada para naves industriales.</p>
+                        <a href="https://wa.me/5492616544130"
                             class="w-full bg-[#25D366] border-2 border-[#25D366] text-white py-3 rounded-lg font-bold uppercase text-sm hover:bg-[#128C7E] hover:border-[#128C7E] transition text-center block shadow-sm flex items-center justify-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current" viewBox="0 0 24 24">
                                 <path
