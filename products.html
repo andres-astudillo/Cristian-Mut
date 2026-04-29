@@ -379,15 +379,15 @@
                     <!-- Product Display Area -->
                     <div class="flex flex-col lg:grid lg:grid-cols-[1fr,120px] gap-8">
                         <!-- Main Product Image -->
-                        <div class="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center min-h-[300px] md:min-h-[500px] relative overflow-hidden group"
+                        <div class="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl relative group min-h-[200px]"
                             id="main-product-area">
                             <!-- Zoom hint -->
                             <div class="absolute top-3 right-3 z-10 bg-black/40 text-white rounded-full w-8 h-8 flex items-center justify-center opacity-0 group-hover:opacity-100 transition pointer-events-none">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
                             </div>
-                            <!-- Real Image -->
+                            <!-- Real Image — se adapta al tamaño natural sin recortarse -->
                             <img id="main-product-image" src="" alt="Producto"
-                                class="absolute inset-0 w-full h-full object-cover hidden cursor-zoom-in"
+                                class="w-full h-auto rounded-xl hidden cursor-zoom-in block"
                                 onclick="openModal(this.src)"
                                 title="Clic para ampliar">
 
