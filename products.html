@@ -379,11 +379,17 @@
                     <!-- Product Display Area -->
                     <div class="flex flex-col lg:grid lg:grid-cols-[1fr,120px] gap-8">
                         <!-- Main Product Image -->
-                        <div class="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl p-6 md:p-12 flex items-center justify-center min-h-[300px] md:min-h-[500px] relative overflow-hidden"
+                        <div class="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center min-h-[300px] md:min-h-[500px] relative overflow-hidden group"
                             id="main-product-area">
+                            <!-- Zoom hint -->
+                            <div class="absolute top-3 right-3 z-10 bg-black/40 text-white rounded-full w-8 h-8 flex items-center justify-center opacity-0 group-hover:opacity-100 transition pointer-events-none">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                            </div>
                             <!-- Real Image -->
                             <img id="main-product-image" src="" alt="Producto"
-                                class="absolute inset-0 w-full h-full object-contain hidden">
+                                class="absolute inset-0 w-full h-full object-cover hidden cursor-zoom-in"
+                                onclick="openModal(this.src)"
+                                title="Clic para ampliar">
 
                             <!-- Placeholder (Visible only if image fails) -->
                             <div id="main-product-placeholder" class="text-center w-full max-w-xs md:max-w-md">
@@ -519,7 +525,7 @@
                         { name: 'Gris Pizarra', hex: '#708090', img: 'TECHOS_SINUSOIDAL_DARK_GREY.png' },
                         { name: 'Negro', hex: '#1a1a1a', img: 'TECHOS_SINUSOIDAL_BLACK.png' }
                     ],
-                    gallery: ['SINUSOIDAL.jpg', 'SINUSOIDAL 2.jpg'],
+                    gallery: [],
                     benefits: ['Construcción rápida', 'Aislación térmica', 'Ahorro energético', 'Durabilidad']
                 },
                 'foilroof-trapezoidal': {
@@ -541,7 +547,7 @@
                         { name: 'Gris Pizarra', hex: '#708090', img: 'TECHOS_TRAPEZOIDAL_DARK_GREY.png' },
                         { name: 'Negro', hex: '#1a1a1a', img: 'TECHOS_TRAPEZOIDAL_BLACK.png' }
                     ],
-                    gallery: ['TRAPEZOIDAL.jpg', 'TRAPEZOIDAL 2.jpg'],
+                    gallery: [],
                     benefits: ['Construcción rápida', 'Aislación térmica', 'Ahorro energético', 'Durabilidad']
                 },
                 'tejatech': {
@@ -581,7 +587,7 @@
                         { name: 'Gris Pizarra', hex: '#708090', img: 'TECHOS_TRAPEZOIDAL_DARK_GREY.png' },
                         { name: 'Negro', hex: '#1a1a1a', img: 'TECHOS_TRAPEZOIDAL_BLACK.png' }
                     ],
-                    gallery: ['TRAPEZOIDAL.jpg', 'TRAPEZOIDAL 2.jpg'],
+                    gallery: [],
                     benefits: []
                 },
                 'classwall': {
