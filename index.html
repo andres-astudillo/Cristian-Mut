@@ -204,7 +204,10 @@
                     <img src="assets/images/fotos/foto-3-muestras.jpeg" alt="Muestras de paneles aislantes">
                 </div>
                 <div class="hero-fw-slide" id="hslide-3">
-                    <img src="assets/images/fotos/foto-4-portada.jpeg" alt="Instalaciones industriales Cristian Mut SA">
+                    <img src="assets/images/fotos/foto-4-portada.jpeg" alt="Equipo Cristian Mut SA">
+                </div>
+                <div class="hero-fw-slide" id="hslide-4">
+                    <img src="assets/images/fotos/foto-deposito.jpeg" alt="Depósito Cristian Mut SA">
                 </div>
             </div>
 
@@ -248,11 +251,12 @@
                 <button class="hero-fw-dot" onclick="heroGoTo(1)"></button>
                 <button class="hero-fw-dot" onclick="heroGoTo(2)"></button>
                 <button class="hero-fw-dot" onclick="heroGoTo(3)"></button>
+                <button class="hero-fw-dot" onclick="heroGoTo(4)"></button>
             </div>
 
             <script>
                 (function(){
-                    var idx = 0, total = 4, timer;
+                    var idx = 0, total = 5, timer;
                     function update(newIdx) {
                         document.getElementById('hslide-' + idx).classList.remove('active');
                         idx = (newIdx + total) % total;
