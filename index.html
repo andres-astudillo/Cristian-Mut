@@ -34,7 +34,7 @@
     <meta property="og:title" content="Cristian Mut SA - Paneles, Cámaras Frigoríficas y Aislamiento Térmico">
     <meta property="og:description"
         content="Soluciones eficientes en refrigeración y construcción: paneles aislantes, cámaras frigoríficas, techos y paredes térmicas para la industria y el agro.">
-    <meta property="og:image" content="assets/images/cristianmut-logo.png">
+    <meta property="og:image" content="https://cristianmut.ar/assets/images/fotos/foto-4-portada.jpeg">
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
@@ -43,9 +43,11 @@
     <meta name="twitter:title" content="Cristian Mut SA - Soluciones Térmicas en Argentina">
     <meta name="twitter:description"
         content="Paneles aislantes, cámaras frigoríficas, techos y paredes de alta eficiencia térmica. Asesoramiento integral en todo el país.">
-    <meta name="twitter:image" content="assets/images/cristianmut-logo.png">
+    <meta name="twitter:image" content="https://cristianmut.ar/assets/images/fotos/foto-4-portada.jpeg">
 
-    <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+    <!-- SEO -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://cristianmut.ar/">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Viga&display=swap" rel="stylesheet">
@@ -179,6 +181,35 @@
         .hero-fw-btn.prev { left: 20px; }
         .hero-fw-btn.next { right: 20px; }
     </style>
+
+    <!-- Structured Data: LocalBusiness -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://cristianmut.ar/",
+        "name": "Cristian Mut SA",
+        "url": "https://cristianmut.ar",
+        "logo": "https://cristianmut.ar/assets/images/cristianmut-logo.png",
+        "image": "https://cristianmut.ar/assets/images/fotos/foto-4-portada.jpeg",
+        "description": "Empresa especializada en paneles aislantes, cámaras frigoríficas, techos y paredes industriales con más de 15 años de trayectoria. Asesoramiento técnico personalizado en toda Argentina.",
+        "telephone": "+5492616544130",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Mendoza",
+            "addressRegion": "Mendoza",
+            "addressCountry": "AR"
+        },
+        "hasMap": "https://maps.google.com/?q=Mendoza,+Argentina",
+        "priceRange": "$$",
+        "currenciesAccepted": "ARS",
+        "paymentAccepted": "Cash, Bank Transfer",
+        "areaServed": {
+            "@type": "Country",
+            "name": "Argentina"
+        }
+    }
+    </script>
 </head>
 
 <body class="text-slate-600 antialiased min-h-screen flex flex-col w-full">
@@ -195,19 +226,19 @@
             <!-- Fondo: imágenes apiladas con fade -->
             <div class="hero-fw-bg">
                 <div class="hero-fw-slide active" id="hslide-0">
-                    <img src="assets/images/fotos/foto-4-portada.jpeg" alt="Equipo Cristian Mut SA">
+                    <img src="assets/images/fotos/foto-4-portada.jpeg" alt="Equipo Cristian Mut SA" fetchpriority="high" loading="eager">
                 </div>
                 <div class="hero-fw-slide" id="hslide-1">
-                    <img src="assets/images/fotos/foto-1-local-desde-arriba.jpeg" alt="Local Cristian Mut SA visto desde arriba">
+                    <img src="assets/images/fotos/foto-1-local-desde-arriba.jpeg" alt="Local Cristian Mut SA visto desde arriba" loading="lazy">
                 </div>
                 <div class="hero-fw-slide" id="hslide-2">
-                    <img src="assets/images/fotos/foto-2-galpon.jpeg" alt="Galpón industrial Cristian Mut SA">
+                    <img src="assets/images/fotos/foto-2-galpon.jpeg" alt="Galpón industrial Cristian Mut SA" loading="lazy">
                 </div>
                 <div class="hero-fw-slide" id="hslide-3">
-                    <img src="assets/images/fotos/foto-3-muestras.jpeg" alt="Muestras de paneles aislantes">
+                    <img src="assets/images/fotos/foto-3-muestras.jpeg" alt="Muestras de paneles aislantes" loading="lazy">
                 </div>
                 <div class="hero-fw-slide" id="hslide-4">
-                    <img src="assets/images/fotos/foto-deposito.jpeg" alt="Depósito Cristian Mut SA">
+                    <img src="assets/images/fotos/foto-deposito.jpeg" alt="Depósito Cristian Mut SA" loading="lazy">
                 </div>
             </div>
 
@@ -412,7 +443,7 @@
                     class="bg-white/40 backdrop-blur-md rounded-xl border border-white/50 overflow-hidden shadow-lg hover:shadow-2xl transition hover:-translate-y-1 flex flex-col group">
                     <div
                         class="bg-gray-100 aspect-[4/3] flex items-center justify-center overflow-hidden group-hover:scale-105 transition duration-500">
-                        <img src="assets/images/fotos/foto-5-paneles-aislantes.png" alt="Paneles aislantes para techos y paredes industriales" class="w-full h-full object-cover">
+                        <img src="assets/images/fotos/foto-5-paneles-aislantes.png" alt="Paneles aislantes para techos y paredes industriales" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-6 flex flex-col flex-grow relative z-10 bg-white">
                         <h3 class="font-heading text-xl font-bold text-brand-dark mb-2">Paneles Aislantes</h3>
@@ -433,7 +464,7 @@
                     class="bg-white/40 backdrop-blur-md rounded-xl border border-white/50 overflow-hidden shadow-lg hover:shadow-2xl transition hover:-translate-y-1 flex flex-col group">
                     <div
                         class="bg-gray-100 aspect-[4/3] flex items-center justify-center overflow-hidden group-hover:scale-105 transition duration-500">
-                        <img src="assets/images/fotos/foto-6-camaras-frigorificas.png" alt="Cámaras frigoríficas industriales y comerciales" class="w-full h-full object-cover">
+                        <img src="assets/images/fotos/foto-6-camaras-frigorificas.png" alt="Cámaras frigoríficas industriales y comerciales" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-6 flex flex-col flex-grow relative z-10 bg-white">
                         <h3 class="font-heading text-xl font-bold text-brand-dark mb-2">Cámaras Frigoríficas</h3>
@@ -453,7 +484,7 @@
                     class="bg-white/40 backdrop-blur-md rounded-xl border border-white/50 overflow-hidden shadow-lg hover:shadow-2xl transition hover:-translate-y-1 flex flex-col group">
                     <div
                         class="bg-gray-100 aspect-[4/3] flex items-center justify-center overflow-hidden group-hover:scale-105 transition duration-500">
-                        <img src="assets/images/fotos/foto-7-naves-industriales.png" alt="Naves industriales con techos y paredes aislantes" class="w-full h-full object-cover">
+                        <img src="assets/images/fotos/foto-7-naves-industriales.png" alt="Naves industriales con techos y paredes aislantes" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-6 flex flex-col flex-grow relative z-10 bg-white">
                         <h3 class="font-heading text-xl font-bold text-brand-dark mb-2">Naves Industriales</h3>

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /.claude/
+Disallow: /cristian-mut-nextjs/
+
+Sitemap: https://cristianmut.ar/sitemap.xml
