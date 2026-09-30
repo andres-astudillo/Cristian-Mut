@@ -101,7 +101,7 @@ function loadFooter() {
     if (!footerContainer) return;
 
     footerContainer.innerHTML = `
-    <footer class="bg-brand-dark text-blue-200 py-16 border-t-8 border-brand-red w-full">
+    <footer class="bg-brand-blue text-blue-100 py-16 border-t-8 border-brand-red w-full">
         <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 text-sm">
             <div class="col-span-1 md:col-span-1">
                 <div class="w-48 text-white mb-6 flex items-center">
@@ -171,7 +171,7 @@ function loadFooter() {
                 </ul>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-blue-900 text-xs text-center text-blue-300">
+        <div class="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-white/20 text-xs text-center text-blue-100">
             &copy; 2026 Cristian Mut SA. Todos los derechos reservados.
         </div>
     </footer>
