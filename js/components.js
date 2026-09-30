@@ -166,7 +166,7 @@ function loadFooter() {
                 <h3 class="text-white font-heading font-bold uppercase mb-6 tracking-wider">Contacto</h3>
                 <ul class="space-y-3">
                     <li class="flex items-center gap-2"><span>📞</span> +54 9 2616 54-4130</li>
-                    <li class="flex items-center gap-2"><span>📧</span> ventas@cristianmut.com</li>
+                    <li class="flex items-center gap-2"><span>📧</span> ventas@cristianmut.ar</li>
                     <li class="flex items-center gap-2"><span>📍</span> Mendoza, Argentina</li>
                 </ul>
             </div>
